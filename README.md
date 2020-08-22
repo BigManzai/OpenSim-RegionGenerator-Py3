@@ -1,5 +1,7 @@
 # OpenSim-RegionGenerator-Py3
-Only Create and Exit works.
+Each time you click Create, this program creates a region configuration file with a random UUID, random name and random port.
+
+### Only Create and Exit works.
 
 ## TODO
 IP
