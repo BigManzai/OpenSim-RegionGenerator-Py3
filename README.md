@@ -1,5 +1,5 @@
 # OpenSim-RegionGenerator-Py3
-Each time you click Create, this program creates a region configuration file with a random UUID, random name and random port.
+Each time you click Create, this program creates a region configuration file with a random UUID, random name, random Location and random port.
 
 The names in the random_name_def.py file can be easily expanded.
 
