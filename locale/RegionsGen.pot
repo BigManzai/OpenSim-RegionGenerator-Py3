@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2020-08-22 15:48+0200\n"
+"POT-Creation-Date: 2020-08-22 17:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,48 +15,84 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 
 
-#: RegionsGenUIV007.py:92 RegionsGenUIV007.py:99 RegionsGenUIV007.py:104
-#: RegionsGenUIV007.py:109 RegionsGenUIV007.py:113
+#: RegionsGenUIV009.py:86 RegionsGenUIV009.py:92 RegionsGenUIV009.py:99
+#: RegionsGenUIV009.py:104 RegionsGenUIV009.py:109 RegionsGenUIV009.py:113
 msgid "no function!"
 msgstr ""
 
-#: RegionsGenUIV007.py:241
+#: RegionsGenUIV009.py:245
 msgid "Data Input"
 msgstr ""
 
-#: RegionsGenUIV007.py:271
+#: RegionsGenUIV009.py:262
 msgid "IP"
 msgstr ""
 
-#: RegionsGenUIV007.py:282
+#: RegionsGenUIV009.py:274
 msgid "Size"
 msgstr ""
 
-#: RegionsGenUIV007.py:304
+#: RegionsGenUIV009.py:286
+msgid "Location"
+msgstr ""
+
+#: RegionsGenUIV009.py:298 RegionsGenUIV009.py:413
 msgid "Port"
 msgstr ""
 
-#: RegionsGenUIV007.py:326
+#: RegionsGenUIV009.py:310
+msgid "UUID"
+msgstr ""
+
+#: RegionsGenUIV009.py:322
 msgid "Region name"
 msgstr ""
 
-#: RegionsGenUIV007.py:429
-msgid "Automatic name"
-msgstr ""
-
-#: RegionsGenUIV007.py:444
+#: RegionsGenUIV009.py:334
 msgid "Number of regions"
 msgstr ""
 
-#: RegionsGenUIV007.py:472
+#: RegionsGenUIV009.py:353
+msgid "Youre Server IP"
+msgstr ""
+
+#: RegionsGenUIV009.py:368
+msgid "Region size"
+msgstr ""
+
+#: RegionsGenUIV009.py:383
+msgid "X position"
+msgstr ""
+
+#: RegionsGenUIV009.py:398
+msgid "y position"
+msgstr ""
+
+#: RegionsGenUIV009.py:428
+msgid "uuid or random"
+msgstr ""
+
+#: RegionsGenUIV009.py:443
+msgid "Region Name"
+msgstr ""
+
+#: RegionsGenUIV009.py:458
+msgid "how many regions"
+msgstr ""
+
+#: RegionsGenUIV009.py:509
 msgid "Create"
 msgstr ""
 
-#: RegionsGenUIV007.py:489
+#: RegionsGenUIV009.py:513
+msgid "Creates one or more regions depending on the setting."
+msgstr ""
+
+#: RegionsGenUIV009.py:526
 msgid "Exit"
 msgstr ""
 
-#: RegionsGenUIV007.py:506
-msgid "Automatic UUID"
+#: RegionsGenUIV009.py:530
+msgid "Exit program."
 msgstr ""
 
