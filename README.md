@@ -18,4 +18,4 @@ Number of regions
 
 Automatic functions
 
-Align texts and entries.
+Align user interface texts and entries.
