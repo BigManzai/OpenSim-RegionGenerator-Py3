@@ -23,3 +23,6 @@ Number of regions
 Automatic functions
 
 Align user interface texts and entries.
+
+## New
+Language en, de, fr, es
