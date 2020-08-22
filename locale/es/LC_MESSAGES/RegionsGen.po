@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2020-08-22 15:48+0200\n"
+"PO-Revision-Date: 2020-08-22 16:07+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"X-Generator: Poedit 2.4.1\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es\n"
+
+#: RegionsGenUIV007.py:92 RegionsGenUIV007.py:99 RegionsGenUIV007.py:104
+#: RegionsGenUIV007.py:109 RegionsGenUIV007.py:113
+msgid "no function!"
+msgstr "ninguna función!"
+
+#: RegionsGenUIV007.py:241
+msgid "Data Input"
+msgstr "Entrada de datos"
+
+#: RegionsGenUIV007.py:271
+msgid "IP"
+msgstr "IP"
+
+#: RegionsGenUIV007.py:282
+msgid "Size"
+msgstr "Tamaño"
+
+#: RegionsGenUIV007.py:304
+msgid "Port"
+msgstr "Puerto"
+
+#: RegionsGenUIV007.py:326
+msgid "Region name"
+msgstr "Nombre de la región"
+
+#: RegionsGenUIV007.py:429
+msgid "Automatic name"
+msgstr "Nombre automático"
+
+#: RegionsGenUIV007.py:444
+msgid "Number of regions"
+msgstr "Número de regiones"
+
+#: RegionsGenUIV007.py:472
+msgid "Create"
+msgstr "Crear"
+
+#: RegionsGenUIV007.py:489
+msgid "Exit"
+msgstr "Salir"
+
+#: RegionsGenUIV007.py:506
+msgid "Automatic UUID"
+msgstr "UUID automático"
