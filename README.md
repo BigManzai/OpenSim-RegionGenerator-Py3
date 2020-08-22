@@ -1,2 +1,19 @@
 # OpenSim-RegionGenerator-Py3
-OpenSimulator Region Generator Python3
+Only Create and Exit works.
+
+## TODO
+IP
+
+Size
+
+Location
+
+Port
+
+UUID
+
+Region name
+
+Number of regions
+
+Automatic functions
