@@ -17,3 +17,5 @@ Region name
 Number of regions
 
 Automatic functions
+
+Align texts and entries.
