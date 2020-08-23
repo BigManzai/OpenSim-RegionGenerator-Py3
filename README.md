@@ -26,3 +26,5 @@ Align user interface texts and entries.
 
 ## New
 Language en, de, fr, es
+
+Ooops works now.
