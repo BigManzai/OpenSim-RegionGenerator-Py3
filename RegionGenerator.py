@@ -40,7 +40,7 @@ _ = langall.gettext
 # pyinstaller muss mit pip installiert werden.
 # pip install pyinstaller
 # Alle Python Skripte hinten anhängen.
-# pyinstaller --windowed --noconsole --onefile RegionsGen.py random_name_def.py
+# pyinstaller --windowed --noconsole --onefile RegionGenerator.py
 
 # random name
 def randomname():
@@ -502,7 +502,7 @@ balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryNonPhysicalPrimMax,balloonmsg= _("NonPhysicalPrimMax"))
 # Checkbutton für NonPhysicalPrimMax
 checkNonPhysicalPrimMax = IntVar()
-Checkbutton(tkFenster, text="turn on", variable=checkNonPhysicalPrimMax).grid(row=11, column=2, sticky=W)
+Checkbutton(tkFenster, text=_("turn on"), variable=checkNonPhysicalPrimMax).grid(row=11, column=2, sticky=W)
 
 # Label mit Aufschrift PhysicalPrimMax
 labelPhysicalPrimMax = Label(master=tkFenster, bg='#F9CDAD', text=_('Physical Prim Max'))
@@ -514,7 +514,7 @@ balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryPhysicalPrimMax,balloonmsg= _("PhysicalPrimMax"))
 # Checkbutton für PhysicalPrimMax
 checkPhysicalPrimMax = IntVar()
-Checkbutton(tkFenster, text="turn on", variable=checkPhysicalPrimMax).grid(row=12, column=2, sticky=W)
+Checkbutton(tkFenster, text=_("turn on"), variable=checkPhysicalPrimMax).grid(row=12, column=2, sticky=W)
 
 # Label mit Aufschrift ClampPrimSize
 labelClampPrimSize = Label(master=tkFenster, bg='#F9CDAD', text=_('Clamp Prim Size'))
@@ -526,7 +526,7 @@ balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryClampPrimSize,balloonmsg= _("ClampPrimSize"))
 # Checkbutton für ClampPrimSize
 checkClampPrimSize = IntVar()
-Checkbutton(tkFenster, text="turn on", variable=checkClampPrimSize).grid(row=13, column=2, sticky=W)
+Checkbutton(tkFenster, text=_("turn on"), variable=checkClampPrimSize).grid(row=13, column=2, sticky=W)
 
 # Label mit Aufschrift MaxPrimsPerUser
 labelMaxPrimsPerUser = Label(master=tkFenster, bg='#F9CDAD', text=_('Max Prims Per User'))
@@ -538,7 +538,7 @@ balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryMaxPrimsPerUser,balloonmsg= _("MaxPrimsPerUser"))
 # Checkbutton für MaxPrimsPerUser
 checkMaxPrimsPerUser = IntVar()
-Checkbutton(tkFenster, text="turn on", variable=checkMaxPrimsPerUser).grid(row=14, column=2, sticky=W)
+Checkbutton(tkFenster, text=_("turn on"), variable=checkMaxPrimsPerUser).grid(row=14, column=2, sticky=W)
 
 # Label mit Aufschrift ScopeID
 labelScopeID = Label(master=tkFenster, bg='#F9CDAD', text=_('Scope ID'))
@@ -550,7 +550,7 @@ balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryScopeID,balloonmsg= _("ScopeID"))
 # Checkbutton für ScopeID
 checkScopeID = IntVar()
-Checkbutton(tkFenster, text="turn on", variable=checkScopeID).grid(row=15, column=2, sticky=W)
+Checkbutton(tkFenster, text=_("turn on"), variable=checkScopeID).grid(row=15, column=2, sticky=W)
 
 # Label mit Aufschrift RegionType
 labelRegionType = Label(master=tkFenster, bg='#F9CDAD', text=_('Region Type'))
@@ -562,7 +562,7 @@ balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryRegionType,balloonmsg= _("RegionType"))
 # Checkbutton für RegionType
 checkRegionType = IntVar()
-Checkbutton(tkFenster, text="turn on", variable=checkRegionType).grid(row=16, column=2, sticky=W)
+Checkbutton(tkFenster, text=_("turn on"), variable=checkRegionType).grid(row=16, column=2, sticky=W)
 
 # Label mit Aufschrift MaptileStaticUUID
 labelMaptileStaticUUID = Label(master=tkFenster, bg='#F9CDAD', text=_('Maptile Static UUID'))
@@ -574,7 +574,7 @@ balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryMaptileStaticUUID,balloonmsg= _("MaptileStaticUUID"))
 # Checkbutton für MaptileStaticUUID
 checkMaptileStaticUUID = IntVar()
-Checkbutton(tkFenster, text="turn on", variable=checkMaptileStaticUUID).grid(row=17, column=2, sticky=W)
+Checkbutton(tkFenster, text=_("turn on"), variable=checkMaptileStaticUUID).grid(row=17, column=2, sticky=W)
 
 # Label mit Aufschrift MaptileStaticFile
 labelMaptileStaticFile = Label(master=tkFenster, bg='#F9CDAD', text=_('Maptile Static File'))
@@ -586,7 +586,7 @@ balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryMaptileStaticFile,balloonmsg= _("MaptileStaticFile"))
 # Checkbutton für MaptileStaticFile
 checkMaptileStaticFile = IntVar()
-Checkbutton(tkFenster, text="turn on", variable=checkMaptileStaticFile).grid(row=18, column=2, sticky=W)
+Checkbutton(tkFenster, text=_("turn on"), variable=checkMaptileStaticFile).grid(row=18, column=2, sticky=W)
 
 # Label mit Aufschrift ResolveAdress
 labelResolveAdress = Label(master=tkFenster, bg='#F9CDAD', text=_('Resolve Adress'))
@@ -598,7 +598,7 @@ balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryResolveAdress,balloonmsg= _("ResolveAdress"))
 # Checkbutton für ResolveAdress
 checkResolveAdress = IntVar()
-Checkbutton(tkFenster, text="turn on", variable=checkResolveAdress).grid(row=19, column=2, sticky=W)
+Checkbutton(tkFenster, text=_("turn on"), variable=checkResolveAdress).grid(row=19, column=2, sticky=W)
 
 # Label mit Aufschrift MasterAvatarFirstName
 labelMasterAvatarFirstName = Label(master=tkFenster, bg='#F9CDAD', text=_('Master Avatar First Name'))
@@ -610,7 +610,7 @@ balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryMasterAvatarFirstName,balloonmsg= _("MasterAvatarFirstName"))
 # Checkbutton für MasterAvatarFirstName
 checkMasterAvatarFirstName = IntVar()
-Checkbutton(tkFenster, text="turn on", variable=checkMasterAvatarFirstName).grid(row=20, column=2, sticky=W)
+Checkbutton(tkFenster, text=_("turn on"), variable=checkMasterAvatarFirstName).grid(row=20, column=2, sticky=W)
 
 # Label mit Aufschrift MasterAvatarLastName
 labelMasterAvatarLastName = Label(master=tkFenster, bg='#F9CDAD', text=_('Master Avatar Last Name'))
@@ -622,7 +622,7 @@ balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryMasterAvatarLastName,balloonmsg= _("Master Avatar Last Name"))
 # Checkbutton für MasterAvatarLastName
 checkMasterAvatarLastName = IntVar()
-Checkbutton(tkFenster, text="turn on", variable=checkMasterAvatarLastName).grid(row=21, column=2, sticky=W)
+Checkbutton(tkFenster, text=_("turn on"), variable=checkMasterAvatarLastName).grid(row=21, column=2, sticky=W)
 
 # Label mit Aufschrift MasterAvatarSandboxPassword
 labelMasterAvatarSandboxPassword = Label(master=tkFenster, bg='#F9CDAD', text=_('Master Avatar Sandbox Password'))
@@ -634,7 +634,7 @@ balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryMasterAvatarSandboxPassword,balloonmsg= _("Master Avatar Sandbox Password"))
 # Checkbutton für MasterAvatarSandboxPassword
 checkMasterAvatarSandboxPassword = IntVar()
-Checkbutton(tkFenster, text="turn on", variable=checkMasterAvatarSandboxPassword).grid(row=22, column=2, sticky=W)
+Checkbutton(tkFenster, text=_("turn on"), variable=checkMasterAvatarSandboxPassword).grid(row=22, column=2, sticky=W)
 
 # Label mit Aufschrift Regionamount
 labelRegionamount = Label(master=tkFenster, bg='#00FFBC', text=_('Number of regions'))

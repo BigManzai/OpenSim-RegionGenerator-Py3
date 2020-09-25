@@ -5,17 +5,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2020-09-25 13:17+0200\n"
-"PO-Revision-Date: 2020-09-25 14:36+0200\n"
+"POT-Creation-Date: 2020-09-25 15:09+0200\n"
+"PO-Revision-Date: 2020-09-25 15:11+0200\n"
+"Last-Translator: Manfred Aabye <openmanniland@gmx.de>\n"
 "Language-Team: \n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: pygettext.py 1.5\n"
 "X-Generator: Poedit 2.4.1\n"
-"Last-Translator: Manfred Aabye <openmanniland@gmx.de>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: de_DE\n"
 
 #: RegionGenerator.py:122
 msgid "Help comes here later."
@@ -55,7 +55,9 @@ msgstr "Größe"
 
 #: RegionGenerator.py:415
 msgid "If size is not specified it will default to the legacy size of 256."
-msgstr "Wenn keine Größe angegeben wird, wird standardmäßig die Legacy-Größe von 256 verwendet."
+msgstr ""
+"Wenn keine Größe angegeben wird, wird standardmäßig die Legacy-Größe von 256 "
+"verwendet."
 
 #: RegionGenerator.py:418 RegionGenerator.py:424
 msgid "Internal Address"
@@ -112,6 +114,13 @@ msgstr "Non Physical Prim Max"
 #: RegionGenerator.py:502
 msgid "NonPhysicalPrimMax"
 msgstr "NonPhysicalPrimMax"
+
+#: RegionGenerator.py:505 RegionGenerator.py:517 RegionGenerator.py:529
+#: RegionGenerator.py:541 RegionGenerator.py:553 RegionGenerator.py:565
+#: RegionGenerator.py:577 RegionGenerator.py:589 RegionGenerator.py:601
+#: RegionGenerator.py:613 RegionGenerator.py:625 RegionGenerator.py:637
+msgid "turn on"
+msgstr "Ein/Aus"
 
 #: RegionGenerator.py:508
 msgid "Physical Prim Max"
