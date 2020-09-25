@@ -1,0 +1,229 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2020-09-25 13:17+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=cp1252\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: RegionGenerator.py:122
+msgid "Help comes here later."
+msgstr ""
+
+#: RegionGenerator.py:122 RegionGenerator.py:664
+msgid "Help"
+msgstr ""
+
+#: RegionGenerator.py:382
+msgid "Region Name"
+msgstr ""
+
+#: RegionGenerator.py:388
+msgid "insert region name"
+msgstr ""
+
+#: RegionGenerator.py:391
+msgid "Location"
+msgstr ""
+
+#: RegionGenerator.py:397
+msgid "Location x,y example 1000,1000"
+msgstr ""
+
+#: RegionGenerator.py:400
+msgid "Region UUID"
+msgstr ""
+
+#: RegionGenerator.py:406
+msgid "RegionUUID blank creates a random."
+msgstr ""
+
+#: RegionGenerator.py:409
+msgid "Size"
+msgstr ""
+
+#: RegionGenerator.py:415
+msgid "If size is not specified it will default to the legacy size of 256."
+msgstr ""
+
+#: RegionGenerator.py:418 RegionGenerator.py:424
+msgid "Internal Address"
+msgstr ""
+
+#: RegionGenerator.py:430
+msgid "Internal Port"
+msgstr ""
+
+#: RegionGenerator.py:436
+msgid "InternalPort blank creates a random."
+msgstr ""
+
+#: RegionGenerator.py:439
+msgid "Allow Alternate Ports"
+msgstr ""
+
+#: RegionGenerator.py:445
+msgid "AllowAlternatePorts"
+msgstr ""
+
+#: RegionGenerator.py:448 RegionGenerator.py:454
+msgid "External Host Name"
+msgstr ""
+
+#: RegionGenerator.py:460
+msgid "Max Prims"
+msgstr ""
+
+#: RegionGenerator.py:466
+msgid "Limit prims to the regions."
+msgstr ""
+
+#: RegionGenerator.py:472
+msgid "Max Agents"
+msgstr ""
+
+#: RegionGenerator.py:478
+msgid "Limit Agents to the regions."
+msgstr ""
+
+#: RegionGenerator.py:484
+msgid "Default Landing"
+msgstr ""
+
+#: RegionGenerator.py:490
+msgid "DefaultLanding"
+msgstr ""
+
+#: RegionGenerator.py:496
+msgid "Non Physical Prim Max"
+msgstr ""
+
+#: RegionGenerator.py:502
+msgid "NonPhysicalPrimMax"
+msgstr ""
+
+#: RegionGenerator.py:508
+msgid "Physical Prim Max"
+msgstr ""
+
+#: RegionGenerator.py:514
+msgid "PhysicalPrimMax"
+msgstr ""
+
+#: RegionGenerator.py:520
+msgid "Clamp Prim Size"
+msgstr ""
+
+#: RegionGenerator.py:526
+msgid "ClampPrimSize"
+msgstr ""
+
+#: RegionGenerator.py:532
+msgid "Max Prims Per User"
+msgstr ""
+
+#: RegionGenerator.py:538
+msgid "MaxPrimsPerUser"
+msgstr ""
+
+#: RegionGenerator.py:544
+msgid "Scope ID"
+msgstr ""
+
+#: RegionGenerator.py:550
+msgid "ScopeID"
+msgstr ""
+
+#: RegionGenerator.py:556
+msgid "Region Type"
+msgstr ""
+
+#: RegionGenerator.py:562
+msgid "RegionType"
+msgstr ""
+
+#: RegionGenerator.py:568
+msgid "Maptile Static UUID"
+msgstr ""
+
+#: RegionGenerator.py:574
+msgid "MaptileStaticUUID"
+msgstr ""
+
+#: RegionGenerator.py:580
+msgid "Maptile Static File"
+msgstr ""
+
+#: RegionGenerator.py:586
+msgid "MaptileStaticFile"
+msgstr ""
+
+#: RegionGenerator.py:592
+msgid "Resolve Adress"
+msgstr ""
+
+#: RegionGenerator.py:598
+msgid "ResolveAdress"
+msgstr ""
+
+#: RegionGenerator.py:604
+msgid "Master Avatar First Name"
+msgstr ""
+
+#: RegionGenerator.py:610
+msgid "MasterAvatarFirstName"
+msgstr ""
+
+#: RegionGenerator.py:616 RegionGenerator.py:622
+msgid "Master Avatar Last Name"
+msgstr ""
+
+#: RegionGenerator.py:628 RegionGenerator.py:634
+msgid "Master Avatar Sandbox Password"
+msgstr ""
+
+#: RegionGenerator.py:640
+msgid "Number of regions"
+msgstr ""
+
+#: RegionGenerator.py:647
+msgid "The desired number of regions."
+msgstr ""
+
+#: RegionGenerator.py:652
+msgid "Create"
+msgstr ""
+
+#: RegionGenerator.py:655
+msgid "Creating the region configurations."
+msgstr ""
+
+#: RegionGenerator.py:658
+msgid "Clear"
+msgstr ""
+
+#: RegionGenerator.py:661
+msgid "Delete data."
+msgstr ""
+
+#: RegionGenerator.py:667
+msgid "Request help."
+msgstr ""
+
+#: RegionGenerator.py:670
+msgid "Exit"
+msgstr ""
+
+#: RegionGenerator.py:673
+msgid "Exit program."
+msgstr ""
+

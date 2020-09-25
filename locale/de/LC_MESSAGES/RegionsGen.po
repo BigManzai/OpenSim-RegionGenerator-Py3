@@ -1,0 +1,239 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2020-09-25 15:09+0200\n"
+"PO-Revision-Date: 2020-09-25 15:11+0200\n"
+"Last-Translator: Manfred Aabye <openmanniland@gmx.de>\n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"X-Generator: Poedit 2.4.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: RegionGenerator.py:122
+msgid "Help comes here later."
+msgstr "Hilfe kommt später."
+
+#: RegionGenerator.py:122 RegionGenerator.py:664
+msgid "Help"
+msgstr "Hilfe"
+
+#: RegionGenerator.py:382
+msgid "Region Name"
+msgstr "Name der Region"
+
+#: RegionGenerator.py:388
+msgid "insert region name"
+msgstr "Name der Region"
+
+#: RegionGenerator.py:391
+msgid "Location"
+msgstr "Standort"
+
+#: RegionGenerator.py:397
+msgid "Location x,y example 1000,1000"
+msgstr "Standort x,y Beispiel 1000,1000"
+
+#: RegionGenerator.py:400
+msgid "Region UUID"
+msgstr "Region UUID"
+
+#: RegionGenerator.py:406
+msgid "RegionUUID blank creates a random."
+msgstr "Bleibt die Region UUID leer wird eine Zufalls UUID erstellt."
+
+#: RegionGenerator.py:409
+msgid "Size"
+msgstr "Größe"
+
+#: RegionGenerator.py:415
+msgid "If size is not specified it will default to the legacy size of 256."
+msgstr ""
+"Wenn keine Größe angegeben wird, wird standardmäßig die Legacy-Größe von 256 "
+"verwendet."
+
+#: RegionGenerator.py:418 RegionGenerator.py:424
+msgid "Internal Address"
+msgstr "Internal Address"
+
+#: RegionGenerator.py:430
+msgid "Internal Port"
+msgstr "Internal Port"
+
+#: RegionGenerator.py:436
+msgid "InternalPort blank creates a random."
+msgstr "Internal Port blank erstellt einen Zufallsport."
+
+#: RegionGenerator.py:439
+msgid "Allow Alternate Ports"
+msgstr "Allow Alternate Ports"
+
+#: RegionGenerator.py:445
+msgid "AllowAlternatePorts"
+msgstr "AllowAlternatePorts"
+
+#: RegionGenerator.py:448 RegionGenerator.py:454
+msgid "External Host Name"
+msgstr "External Host Name"
+
+#: RegionGenerator.py:460
+msgid "Max Prims"
+msgstr "Max Prims"
+
+#: RegionGenerator.py:466
+msgid "Limit prims to the regions."
+msgstr "Prim Limit der Region."
+
+#: RegionGenerator.py:472
+msgid "Max Agents"
+msgstr "Max Agents"
+
+#: RegionGenerator.py:478
+msgid "Limit Agents to the regions."
+msgstr "Avatar Limit der Region."
+
+#: RegionGenerator.py:484
+msgid "Default Landing"
+msgstr "Landepunkt"
+
+#: RegionGenerator.py:490
+msgid "DefaultLanding"
+msgstr "Landepunkt"
+
+#: RegionGenerator.py:496
+msgid "Non Physical Prim Max"
+msgstr "Non Physical Prim Max"
+
+#: RegionGenerator.py:502
+msgid "NonPhysicalPrimMax"
+msgstr "NonPhysicalPrimMax"
+
+#: RegionGenerator.py:505 RegionGenerator.py:517 RegionGenerator.py:529
+#: RegionGenerator.py:541 RegionGenerator.py:553 RegionGenerator.py:565
+#: RegionGenerator.py:577 RegionGenerator.py:589 RegionGenerator.py:601
+#: RegionGenerator.py:613 RegionGenerator.py:625 RegionGenerator.py:637
+msgid "turn on"
+msgstr "Ein/Aus"
+
+#: RegionGenerator.py:508
+msgid "Physical Prim Max"
+msgstr "Physical Prim Max"
+
+#: RegionGenerator.py:514
+msgid "PhysicalPrimMax"
+msgstr "PhysicalPrimMax"
+
+#: RegionGenerator.py:520
+msgid "Clamp Prim Size"
+msgstr "Größe"
+
+#: RegionGenerator.py:526
+msgid "ClampPrimSize"
+msgstr "ClampPrimSize"
+
+#: RegionGenerator.py:532
+msgid "Max Prims Per User"
+msgstr "Max Prims Per User"
+
+#: RegionGenerator.py:538
+msgid "MaxPrimsPerUser"
+msgstr "MaxPrimsPerUser"
+
+#: RegionGenerator.py:544
+msgid "Scope ID"
+msgstr "Scope ID"
+
+#: RegionGenerator.py:550
+msgid "ScopeID"
+msgstr "ScopeID"
+
+#: RegionGenerator.py:556
+msgid "Region Type"
+msgstr "Region Type"
+
+#: RegionGenerator.py:562
+msgid "RegionType"
+msgstr "RegionType"
+
+#: RegionGenerator.py:568
+msgid "Maptile Static UUID"
+msgstr "Maptile Static UUID"
+
+#: RegionGenerator.py:574
+msgid "MaptileStaticUUID"
+msgstr "MaptileStaticUUID"
+
+#: RegionGenerator.py:580
+msgid "Maptile Static File"
+msgstr "Maptile Static File"
+
+#: RegionGenerator.py:586
+msgid "MaptileStaticFile"
+msgstr "MaptileStaticFile"
+
+#: RegionGenerator.py:592
+msgid "Resolve Adress"
+msgstr "Resolve Adress"
+
+#: RegionGenerator.py:598
+msgid "ResolveAdress"
+msgstr "ResolveAdress"
+
+#: RegionGenerator.py:604
+msgid "Master Avatar First Name"
+msgstr "Master Avatar First Name"
+
+#: RegionGenerator.py:610
+msgid "MasterAvatarFirstName"
+msgstr "MasterAvatarFirstName"
+
+#: RegionGenerator.py:616 RegionGenerator.py:622
+msgid "Master Avatar Last Name"
+msgstr "Master Avatar Last Name"
+
+#: RegionGenerator.py:628 RegionGenerator.py:634
+msgid "Master Avatar Sandbox Password"
+msgstr "Master Avatar Sandbox Password"
+
+#: RegionGenerator.py:640
+msgid "Number of regions"
+msgstr "Anzahl der Regionen"
+
+#: RegionGenerator.py:647
+msgid "The desired number of regions."
+msgstr "Anzahl der Regionen"
+
+#: RegionGenerator.py:652
+msgid "Create"
+msgstr "Erstellen"
+
+#: RegionGenerator.py:655
+msgid "Creating the region configurations."
+msgstr "Erstellen der Regionskonfigurationen."
+
+#: RegionGenerator.py:658
+msgid "Clear"
+msgstr "Löschen"
+
+#: RegionGenerator.py:661
+msgid "Delete data."
+msgstr "Dateneingabe löschen"
+
+#: RegionGenerator.py:667
+msgid "Request help."
+msgstr "Hilfe anfordern."
+
+#: RegionGenerator.py:670
+msgid "Exit"
+msgstr "Schließen"
+
+#: RegionGenerator.py:673
+msgid "Exit program."
+msgstr "Beendt das Programm."
