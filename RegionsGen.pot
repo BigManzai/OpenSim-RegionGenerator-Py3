@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2020-09-25 13:17+0200\n"
+"POT-Creation-Date: 2020-09-25 15:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -109,6 +109,13 @@ msgstr ""
 
 #: RegionGenerator.py:502
 msgid "NonPhysicalPrimMax"
+msgstr ""
+
+#: RegionGenerator.py:505 RegionGenerator.py:517 RegionGenerator.py:529
+#: RegionGenerator.py:541 RegionGenerator.py:553 RegionGenerator.py:565
+#: RegionGenerator.py:577 RegionGenerator.py:589 RegionGenerator.py:601
+#: RegionGenerator.py:613 RegionGenerator.py:625 RegionGenerator.py:637
+msgid "turn on"
 msgstr ""
 
 #: RegionGenerator.py:508
