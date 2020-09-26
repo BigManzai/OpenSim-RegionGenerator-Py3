@@ -5,13 +5,15 @@
 import configparser
 import uuid
 import random
-import sys
-import tkinter as tk
-import tkinter.ttk as ttk
+#import sys
+#import os
+#import tkinter as tk
+#import tkinter.ttk as ttk
 from tkinter.tix import * #Tooltips
 from tkinter import messagebox
 import random
 import gettext
+
 
 gettext.install('RegionsGen')
 #lang1 = gettext.translation('RegionsGen', 'locale', languages=['de']) # Nur eine Sprache
@@ -88,7 +90,7 @@ def randomname():
         'Throaldr', 'Thruhleow', 'Thrythwig', 'Tiak', 'Tighearnach', 'Tioboid', 'Tiomoid', 'Tirell', 'Togtar', 'Toirdealbach', 'Toireasa', 'Tomas', 'Torc', 'Tordek', 'Torm', 'Tormaigh', 'Torr', 'Torra', 'Tosdramos', 'Trahayarn', 'Tramiel', 'Trea', 'Treabhar', 'Treasach',
         'Trekarraz', 'Trent', 'Trevelian', 'Trystan', 'Tsoladin', 'Tuathal', 'Turgal', 'Txorass', 'Tygr', 'Tyrion', 'Ualtar', 'Udo', 'Uigboern', 'Uilleam', 'Uinsionn', 'Ulbon', 'Ulfmaerr', 'Ulvelaik', 'Unnurr', 'Vaasa', 'Valadenya', 'Valerius', 'Varin', 'Varvia', 'Vollmr',
         'Vychan', 'Wace', 'Waenwryht', 'Waescburne', 'Waldramm', 'Walijan', 'Wallihelm', 'Wandi', 'Wann', 'Waren', 'Warto', 'Wendido', 'Wenis', 'Werro', 'Wigis', 'Willaperht', 'Willimod', 'Winiholdo', 'Wolf', 'Wudoreafa', 'Wulfgar', 'Wulfric', 'Wulfrith', 'Wyrduàn', 'Yaligan',
-        'Yarrik', 'YaYarzar', 'Yedda', 'Yofenia', 'Zaasz', 'Zareius', 'Zarrag', 'Zolt2.)Weibliche', 'Namen', 'Abvia', 'Adalheit', 'Aeldra', 'Aelfdene', 'Aeltra', 'Aemete', 'Aethelmaere', 'Aidan', 'Ailin', 'Aimil', 'Aine', 'Airleas', 'Aislinn', 'Alain', 'Alaria', 'Allsun',
+        'Yarrik', 'YaYarzar', 'Yedda', 'Yofenia', 'Zaasz', 'Zareius', 'Zarrag', 'Zolt', 'Namen', 'Abvia', 'Adalheit', 'Aeldra', 'Aelfdene', 'Aeltra', 'Aemete', 'Aethelmaere', 'Aidan', 'Ailin', 'Aimil', 'Aine', 'Airleas', 'Aislinn', 'Alain', 'Alaria', 'Allsun',
         'Alundra', 'Alviss', 'Amhiunn', 'Andaria', 'Aoiffe', 'Astryd', 'Athalindi', 'Attheneldre', 'Aylen', 'Baduhildi', 'Baldwine', 'Banbrigge', 'Beathag', 'Bebhinn', 'Beorhthildi', 'Berahta', 'Berangari', 'Bloddwyn', 'Brangwen', 'Brann', 'Breandan', 'Bridhid', 'Brita', 'Bronwyn',
         'Brunihildi', 'Cadhla', 'Caellach', 'Caitlin', 'Caomhiun', 'Ceara', 'Chodhildi', 'Ciarda', 'Conn', 'Creiddylad', 'Cristin', 'Cwladys', 'Dalaria', 'Damneya', 'Deardrui', 'Deorawine', 'Doire', 'Doireann', 'Domhnull', 'Duana', 'Dyddplentyn', 'Eadgyth', 'Ealasaid', 'Earwine',
         'Eibhlin', 'Eideann', 'Eilis', 'Eister', 'Elspe', 'Engelberhta', 'Enit', 'Eodoaine', 'Eorlariel', 'Erinn', 'Eysellt', 'Fionnghuala', 'Flanna', 'Freyja', 'Gala', 'Gertrut', 'Ghleanna', 'Gilsberhta', 'Giorsal', 'Gisela', 'Glynydd', 'Grisjahildi', 'Gunnhild', 'Gwendolyn',
@@ -152,11 +154,6 @@ def write_region():
     # capitalization gross- kleinschreibung beachten
     config.optionxform = str
 
-    # region name
-    regionname = str(entryRegionName.get()) # Holt die Daten aus der Eingabe, hier die regionname.
-    regionnameout = str(entryRegionName.get()) # Holt die Daten aus der Eingabe, hier die regionname.
-    if regionname=='' : regionname = randomname()
-    if regionnameout=='' : regionnameout = randomname()
     # generate a uuid for all entries
     ruuid = str(entryRegionUUID.get()) # Holt die Daten aus der Eingabe, hier die maplocation.
     if ruuid=='' : ruuid = randomuuid()
@@ -273,8 +270,17 @@ def write_region():
     # ExternalHostName
     ExternalHostName = str(entryExternalHostName.get()) # Holt die Daten aus der Eingabe, hier ExternalHostName.
     if ExternalHostName=='' : ExternalHostName = "SYSTEMIP"
+
+    # region name
+    regionname = str(entryRegionName.get()) # Holt die Daten aus der Eingabe, hier regionname.    
+    if regionname=='' : regionname = randomname()
+
+    # Ist der Regionsname bereits vergeben dann Zahlen an den Regionsnamen anhaengen.
+
     
-    # Change space to subline for the filename
+    
+    # Change space to subline for the regionname
+    regionnameout = regionname 
     confdatei = regionnameout.replace(" ", "_")
        
     config[regionnameout] = {'RegionUUID': ruuid,
@@ -302,6 +308,18 @@ def write_region():
                           checkMasterAvatarLastNameoff + 'MasterAvatarLastName': MasterAvatarLastName,
                           checkMasterAvatarSandboxPasswordoff + 'MasterAvatarSandboxPassword': MasterAvatarSandboxPassword}
 
+    ##### Dateinamen aendern falls er schon vorhanden ist #####
+    #PATH = './' + confdatei + '.ini'
+    #if os.path.isfile(PATH) and os.access(PATH, os.R_OK):
+        # File exists
+        #i=0
+        #n = int(entryRegionamount.get()) # Holt die Daten aus der Eingabe, hier die Menge der Regionen.
+        #for i in range(i, n):
+            #with open(confdatei + str(i) + '.ini', 'w') as configfile: config.write(configfile)
+    #else:
+        # File not exists
+        #with open(confdatei + '.ini', 'w') as configfile: config.write(configfile)
+
     with open(confdatei + '.ini', 'w') as configfile: config.write(configfile)
 
 def createconfig():
@@ -311,7 +329,17 @@ def createconfig():
     for i in range(i, n):
 	    write_region()
     else:
-	    return;
+	    return n;
+
+def createmulti():
+    messagebox.showinfo(_("Create"), _("MultiRegion hat noch keine Funktion."))
+    return;
+
+def start():
+    if checkMultiRegionamount.get()==0 : createconfig()
+    else: createmulti()
+
+    return;
 
 def clear_input_field():
    entryRegionName.delete(0, END)
@@ -338,6 +366,7 @@ def clear_input_field():
    entryMasterAvatarSandboxPassword.delete(0, END)
    entryInternalAddress.delete(0, END)
    entryRegionamount.delete(0, END)
+   entryRegionamount.insert(10, "1") # Mindestens eine Region erstellen.
    # Checkbox clear
    checkDefaultLanding.set(0)
    checkNonPhysicalPrimMax.set(0)
@@ -490,7 +519,7 @@ balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryDefaultLanding,balloonmsg= _("DefaultLanding"))
 # Checkbutton für DefaultLanding
 checkDefaultLanding = IntVar()
-Checkbutton(tkFenster, text="turn on", variable=checkDefaultLanding).grid(row=10, column=2, sticky=W)
+Checkbutton(tkFenster, text=_("turn on"), variable=checkDefaultLanding).grid(row=10, column=2, sticky=W)
 
 # Label mit Aufschrift NonPhysicalPrimMax
 labelNonPhysicalPrimMax = Label(master=tkFenster, bg='#F9CDAD', text=_('Non Physical Prim Max'))
@@ -645,11 +674,15 @@ entryRegionamount.grid(row=23, column=1, padx='5', pady='5', sticky='ew')
 entryRegionamount.insert(10, "1") # Mindestens eine Region erstellen.
 balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryRegionamount,balloonmsg= _("The desired number of regions."))
+# Checkbutton für MultiRegionamount
+checkMultiRegionamount = IntVar()
+Checkbutton(tkFenster, text=_("Multiple"), variable=checkMultiRegionamount).grid(row=23, column=2, sticky=W)
 
 ################################# Buttons ##################################################
 
 # Button zum Erstellen
-RegionCreate = Button(master=tkFenster, text=_('Create'), width='22', bg='#00FFBC', command=createconfig)
+#RegionCreate = Button(master=tkFenster, text=_('Create'), width='22', bg='#00FFBC', command=createconfig)
+RegionCreate = Button(master=tkFenster, text=_('Create'), width='22', bg='#00FFBC', command=start)
 RegionCreate.grid(row=25, column=0, padx='5', pady='5')
 balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(RegionCreate,balloonmsg= _("Creating the region configurations."))
