@@ -5,10 +5,7 @@
 import configparser
 import uuid
 import random
-#import sys
-#import os
-#import tkinter as tk
-#import tkinter.ttk as ttk
+from tkinter import *
 from tkinter.tix import * #Tooltips
 from tkinter import messagebox
 import random
@@ -276,7 +273,6 @@ def write_region():
     if regionname=='' : regionname = randomname()
 
     # Ist der Regionsname bereits vergeben dann Zahlen an den Regionsnamen anhaengen.
-
     
     
     # Change space to subline for the regionname
@@ -309,16 +305,6 @@ def write_region():
                           checkMasterAvatarSandboxPasswordoff + 'MasterAvatarSandboxPassword': MasterAvatarSandboxPassword}
 
     ##### Dateinamen aendern falls er schon vorhanden ist #####
-    #PATH = './' + confdatei + '.ini'
-    #if os.path.isfile(PATH) and os.access(PATH, os.R_OK):
-        # File exists
-        #i=0
-        #n = int(entryRegionamount.get()) # Holt die Daten aus der Eingabe, hier die Menge der Regionen.
-        #for i in range(i, n):
-            #with open(confdatei + str(i) + '.ini', 'w') as configfile: config.write(configfile)
-    #else:
-        # File not exists
-        #with open(confdatei + '.ini', 'w') as configfile: config.write(configfile)
 
     with open(confdatei + '.ini', 'w') as configfile: config.write(configfile)
 
@@ -451,9 +437,6 @@ entryInternalAddress = Entry(master=tkFenster, bg='white', width='32')
 entryInternalAddress.grid(row=4, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryInternalAddress,balloonmsg= _("Internal Address"))
-# Checkbutton für InternalAddress
-#checkInternalAddress = IntVar()
-#Checkbutton(tkFenster, text="turn on", variable=checkInternalAddress).grid(row=4, column=2, sticky=W)
 
 # Label mit Aufschrift InternalPort
 labelInternalPort = Label(master=tkFenster, bg='#F9CDAD', text=_('Internal Port'))
@@ -481,9 +464,6 @@ entryExternalHostName = Entry(master=tkFenster, bg='white', width='32')
 entryExternalHostName.grid(row=7, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryExternalHostName,balloonmsg= _("External Host Name"))
-# Checkbutton für ExternalHostName
-#checkExternalHostName = IntVar()
-#Checkbutton(tkFenster, text="turn on", variable=checkExternalHostName).grid(row=7, column=2, sticky=W)
 
 # Label mit Aufschrift MaxPrims
 labelMaxPrims = Label(master=tkFenster, bg='#F9CDAD', text=_('Max Prims'))
@@ -493,9 +473,6 @@ entryMaxPrims = Entry(master=tkFenster, bg='white', width='32')
 entryMaxPrims.grid(row=8, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryMaxPrims,balloonmsg= _("Limit prims to the regions."))
-# Checkbutton für MaxPrims
-#checkMaxPrims = IntVar()
-#Checkbutton(tkFenster, text="turn on", variable=checkMaxPrims).grid(row=8, column=2, sticky=W)
 
 # Label mit Aufschrift MaxAgents
 labelMaxAgents = Label(master=tkFenster, bg='#F9CDAD', text=_('Max Agents'))
@@ -505,9 +482,6 @@ entryMaxAgents = Entry(master=tkFenster, bg='white', width='32')
 entryMaxAgents.grid(row=9, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryMaxAgents,balloonmsg= _("Limit Agents to the regions."))
-# Checkbutton für MaxAgents
-#checkMaxAgents = IntVar()
-#Checkbutton(tkFenster, text="turn on", variable=checkMaxAgents).grid(row=9, column=2, sticky=W)
 
 # Label mit Aufschrift DefaultLanding
 labelDefaultLanding = Label(master=tkFenster, bg='#F9CDAD', text=_('Default Landing'))
