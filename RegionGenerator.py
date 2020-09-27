@@ -424,9 +424,9 @@ balloon.bind_widget(entryRegionName,balloonmsg= _("insert region name"))
 labelLocation = Label(master=tkFenster, bg='#F9CDAD', text=_('Location'))
 labelLocation.grid(row=1, column=0, padx='5', pady='5', sticky='ew')
 # Entry für Location
-entryLocationx = Entry(master=tkFenster, bg='white', width='16')
+entryLocationx = Entry(master=tkFenster, bg='white', width='32')
 entryLocationx.grid(row=1, column=1, padx='5', pady='5', sticky='w')
-entryLocationy = Entry(master=tkFenster, bg='white', width='16')
+entryLocationy = Entry(master=tkFenster, bg='white', width='32')
 entryLocationy.grid(row=1, column=2, padx='5', pady='5', sticky='w')
 
 balloon = Balloon(tkFenster,bg="white", title="Help")
