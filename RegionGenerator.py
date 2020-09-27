@@ -145,17 +145,27 @@ def write_region():
     config = configparser.ConfigParser()
     
     # assemble region location
-    maplocation = str(entryLocation.get()) # Holt die Daten aus der Eingabe, hier die maplocation.
-    if maplocation=='' : maplocation = randomlocation() + ',' + randomlocation()
+    maplocationx = entryLocationx.get() # Holt den string aus der Eingabe, hier die maplocation.
+    maplocationy = entryLocationy.get() # Holt den string aus der Eingabe, hier die maplocation.
+
+    if maplocationx =='' : maplocationx = random.randrange(1000, 8000, 4)
+    if maplocationy =='' : maplocationy = random.randrange(1000, 8000, 4)
+
+    maplocationx = str(maplocationx) # int to str
+    maplocationy = str(maplocationy)
+    maplocation = maplocationx + ',' + maplocationy # Zusammensetzen Beispiel 1000,1000
+
+    #maplocation = str(maplocation)
+    
 
     # capitalization gross- kleinschreibung beachten
     config.optionxform = str
 
     # generate a uuid for all entries
-    ruuid = str(entryRegionUUID.get()) # Holt die Daten aus der Eingabe, hier die maplocation.
+    ruuid = str(entryRegionUUID.get()) # Holt die Daten aus der Eingabe, hier die RegionUUID.
     if ruuid=='' : ruuid = randomuuid()
     # Size
-    Size_var = str(entrySize.get()) # Holt die Daten aus der Eingabe, hier die maplocation.
+    Size_var = str(entrySize.get()) # Holt die Daten aus der Eingabe, hier Size.
     if Size_var=='' : Size_var = "256"
     # InternalPort
     InternalPort = str(entryInternalPort.get()) # Holt die Daten aus der Eingabe, hier der InternalPort.
@@ -319,17 +329,25 @@ def createconfig():
 
 def createmulti():
     messagebox.showinfo(_("Create"), _("MultiRegion hat noch keine Funktion."))
-    return;
+    #Size_var = str(entrySize.get()) # Holt die Daten aus der Eingabe, hier die maplocation.
+    #maplocation = str(entryLocation.get()) # Holt die Daten aus der Eingabe, hier die maplocation.
+    #if maplocation=='' : maplocation = '5000,5000'
+    #n = int(entryRegionamount.get()) # Holt die Daten aus der Eingabe, hier die Menge der Regionen.
+    #i=0
+    #for i in range(i, n):
+    #	write_region()
+    #else: return;
 
 def start():
     if checkMultiRegionamount.get()==0 : createconfig()
-    else: createmulti()
-
+    else:
+        createmulti()
     return;
 
 def clear_input_field():
    entryRegionName.delete(0, END)
-   entryLocation.delete(0, END)
+   entryLocationx.delete(0, END)
+   entryLocationy.delete(0, END)
    entryRegionUUID.delete(0, END)
    entrySize.delete(0, END)
    entryInternalPort.delete(0, END)
@@ -406,10 +424,15 @@ balloon.bind_widget(entryRegionName,balloonmsg= _("insert region name"))
 labelLocation = Label(master=tkFenster, bg='#F9CDAD', text=_('Location'))
 labelLocation.grid(row=1, column=0, padx='5', pady='5', sticky='ew')
 # Entry für Location
-entryLocation = Entry(master=tkFenster, bg='white', width='32')
-entryLocation.grid(row=1, column=1, padx='5', pady='5', sticky='ew')
+entryLocationx = Entry(master=tkFenster, bg='white', width='16')
+entryLocationx.grid(row=1, column=1, padx='5', pady='5', sticky='w')
+entryLocationy = Entry(master=tkFenster, bg='white', width='16')
+entryLocationy.grid(row=1, column=2, padx='5', pady='5', sticky='w')
+
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryLocation,balloonmsg= _("Location x,y example 1000,1000"))
+balloon.bind_widget(entryLocationx,balloonmsg= _("Location x example: 5000"))
+balloon = Balloon(tkFenster,bg="white", title="Help")
+balloon.bind_widget(entryLocationy,balloonmsg= _("Location y example: 5000"))
 
 # Label mit Aufschrift RegionUUID
 labelRegionUUID = Label(master=tkFenster, bg='#F9CDAD', text=_('Region UUID'))
