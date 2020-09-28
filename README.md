@@ -5,6 +5,6 @@ New source
 
 Upgrade help
 
-Upgrade Translation 
+Upgrade Translation (All languages except German are only machine translated.)
 
 new: region name + number
