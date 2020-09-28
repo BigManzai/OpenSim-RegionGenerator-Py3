@@ -7,4 +7,4 @@ Upgrade help
 
 Upgrade Translation 
 
-new region name + number
+new: region name + number
