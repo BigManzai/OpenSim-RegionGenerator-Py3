@@ -41,6 +41,10 @@ _ = langall.gettext
 # Alle Python Skripte hinten anhängen.
 # pyinstaller --windowed --noconsole --onefile RegionGenerator.py
 
+# Vari
+maplocation = ''
+counter = 0
+
 # random name
 def randomname():
     name = random.choice(['Abod', 'Adalbeort', 'Adalgar', 'Adham', 'Adken', 'Adulfuns', 'Aelf', 'Aelfraid', 'Aelfric', 'Aelor', 'Aescby', 'Aethel', 'Aethelberht', 'Aethelisdun', 'Ahanor', 'Aherne', 'Ahrin', 'Aidan', 'Aidtun', 'Aifrid',
@@ -143,6 +147,7 @@ def randomuuid():
 # create a config file
 def write_region():
     config = configparser.ConfigParser()
+    global counter
     
     # assemble region location
     maplocationx = entryLocationx.get() # Holt den string aus der Eingabe, hier die maplocation.
@@ -154,9 +159,6 @@ def write_region():
     maplocationx = str(maplocationx) # int to str
     maplocationy = str(maplocationy)
     maplocation = maplocationx + ',' + maplocationy # Zusammensetzen Beispiel 1000,1000
-
-    #maplocation = str(maplocation)
-    
 
     # capitalization gross- kleinschreibung beachten
     config.optionxform = str
@@ -187,7 +189,7 @@ def write_region():
     else: checkResolveAdressoff = ''
     #entryDefaultLanding
     DefaultLanding = str(entryDefaultLanding.get())
-    if DefaultLanding=='' : DefaultLanding = '<128,128,21>'
+    if DefaultLanding=='' : DefaultLanding = '128,128,21'
     #checkDefaultLanding 
     if checkDefaultLanding.get()==0 : checkDefaultLandingoff = ';'
     else: checkDefaultLandingoff = ''
@@ -269,26 +271,29 @@ def write_region():
 
     #entryInternalAddress
     InternalAddress = str(entryInternalAddress.get())
-    if InternalAddress=='' : InternalAddress = "0.0.0.0"
+    if InternalAddress =='' : InternalAddress = "0.0.0.0"
     #checkResolveAdress = checkResolveAdress.get()
     if checkResolveAdress.get()==0 : checkResolveAdressoff = ';'
     else: checkResolveAdressoff = ''
 
     # ExternalHostName
     ExternalHostName = str(entryExternalHostName.get()) # Holt die Daten aus der Eingabe, hier ExternalHostName.
-    if ExternalHostName=='' : ExternalHostName = "SYSTEMIP"
+    if ExternalHostName =='' : ExternalHostName = "SYSTEMIP"
 
     # region name
-    regionname = str(entryRegionName.get()) # Holt die Daten aus der Eingabe, hier regionname.    
-    if regionname=='' : regionname = randomname()
-
+    regionname = str(entryRegionName.get()) # Holt die Daten aus der Eingabe, hier regionname.
     # Ist der Regionsname bereits vergeben dann Zahlen an den Regionsnamen anhaengen.
-    
-    
-    # Change space to subline for the regionname
-    regionnameout = regionname 
+    if regionname =='' : 
+        regionname = randomname()
+        regionnameout = regionname
+    else:
+        regionnameout = regionname + ' ' + str(counter)
+        counter += 1
+
+    # Leerzeichen durch unterstriche austauschen.
     confdatei = regionnameout.replace(" ", "_")
-       
+
+    # Konfiguration erstellen.
     config[regionnameout] = {'RegionUUID': ruuid,
                           'Location': maplocation,
                           'SizeX': Size_var,
@@ -301,7 +306,7 @@ def write_region():
                           'ExternalHostName': ExternalHostName,
                           'MaxPrims': MaxPrims,
                           'MaxAgents': MaxAgents,
-                          checkDefaultLandingoff + 'DefaultLanding': DefaultLanding,
+                          checkDefaultLandingoff + 'DefaultLanding': '<' + DefaultLanding + '>',
                           checkNonPhysicalPrimMaxoff + 'NonPhysicalPrimMax': NonPhysicalPrimMax,
                           checkPhysicalPrimMaxoff + 'PhysicalPrimMax': PhysicalPrimMax,
                           checkClampPrimSizeoff + 'ClampPrimSize': ClampPrimSize,
@@ -321,7 +326,6 @@ def write_region():
 def createconfig():
     i=0
     n = int(entryRegionamount.get()) # Holt die Daten aus der Eingabe, hier die Menge der Regionen.
-
     for i in range(i, n):
 	    write_region()
     else:
@@ -329,14 +333,6 @@ def createconfig():
 
 def createmulti():
     messagebox.showinfo(_("Create"), _("MultiRegion hat noch keine Funktion."))
-    #Size_var = str(entrySize.get()) # Holt die Daten aus der Eingabe, hier die maplocation.
-    #maplocation = str(entryLocation.get()) # Holt die Daten aus der Eingabe, hier die maplocation.
-    #if maplocation=='' : maplocation = '5000,5000'
-    #n = int(entryRegionamount.get()) # Holt die Daten aus der Eingabe, hier die Menge der Regionen.
-    #i=0
-    #for i in range(i, n):
-    #	write_region()
-    #else: return;
 
 def start():
     if checkMultiRegionamount.get()==0 : createconfig()
@@ -418,7 +414,7 @@ labelRegionName.grid(row=0, column=0, padx='5', pady='5', sticky='ew')
 entryRegionName = Entry(master=tkFenster, bg='white', width='32')
 entryRegionName.grid(row=0, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryRegionName,balloonmsg= _("insert region name"))
+balloon.bind_widget(entryRegionName,balloonmsg= _("insert region name\nexample: My Virtual Land\nblank creates a random."))
 
 # Label mit Aufschrift Location
 labelLocation = Label(master=tkFenster, bg='#F9CDAD', text=_('Location'))
@@ -430,9 +426,9 @@ entryLocationy = Entry(master=tkFenster, bg='white', width='32')
 entryLocationy.grid(row=1, column=2, padx='5', pady='5', sticky='w')
 
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryLocationx,balloonmsg= _("Location x example: 5000"))
+balloon.bind_widget(entryLocationx,balloonmsg= _("Location x\nexample: 5000\nblank creates a random."))
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryLocationy,balloonmsg= _("Location y example: 5000"))
+balloon.bind_widget(entryLocationy,balloonmsg= _("Location y\nexample: 5000\nblank creates a random."))
 
 # Label mit Aufschrift RegionUUID
 labelRegionUUID = Label(master=tkFenster, bg='#F9CDAD', text=_('Region UUID'))
@@ -441,7 +437,7 @@ labelRegionUUID.grid(row=2, column=0, padx='5', pady='5', sticky='ew')
 entryRegionUUID = Entry(master=tkFenster, bg='white', width='32')
 entryRegionUUID.grid(row=2, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryRegionUUID,balloonmsg= _("RegionUUID blank creates a random."))
+balloon.bind_widget(entryRegionUUID,balloonmsg= _("Region UUID\nblank creates a random."))
 
 # Label mit Aufschrift Size
 labelSize = Label(master=tkFenster, bg='#F9CDAD', text=_('Size'))
@@ -450,7 +446,7 @@ labelSize.grid(row=3, column=0, padx='5', pady='5', sticky='ew')
 entrySize = Entry(master=tkFenster, bg='white', width='32')
 entrySize.grid(row=3, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entrySize,balloonmsg= _("If size is not specified it will default to the legacy size of 256."))
+balloon.bind_widget(entrySize,balloonmsg= _("If size is not specified it will\ndefault to the legacy size of 256.\nblank creates 256."))
 
 # Label mit Aufschrift InternalAddress
 labelInternalAddress = Label(master=tkFenster, bg='#F9CDAD', text=_('Internal Address'))
@@ -459,7 +455,7 @@ labelInternalAddress.grid(row=4, column=0, padx='5', pady='5', sticky='ew')
 entryInternalAddress = Entry(master=tkFenster, bg='white', width='32')
 entryInternalAddress.grid(row=4, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryInternalAddress,balloonmsg= _("Internal Address"))
+balloon.bind_widget(entryInternalAddress,balloonmsg= _("Internal Address\nstandard: 0.0.0.0"))
 
 # Label mit Aufschrift InternalPort
 labelInternalPort = Label(master=tkFenster, bg='#F9CDAD', text=_('Internal Port'))
@@ -468,7 +464,7 @@ labelInternalPort.grid(row=5, column=0, padx='5', pady='5', sticky='ew')
 entryInternalPort = Entry(master=tkFenster, bg='white', width='32')
 entryInternalPort.grid(row=5, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryInternalPort,balloonmsg= _("InternalPort blank creates a random."))
+balloon.bind_widget(entryInternalPort,balloonmsg= _("IP port for all incoming client connections.\nBlank creates a random."))
 
 # Label mit Aufschrift AllowAlternatePorts
 labelAllowAlternatePorts = Label(master=tkFenster, bg='#F9CDAD', text=_('Allow Alternate Ports'))
@@ -477,7 +473,7 @@ labelAllowAlternatePorts.grid(row=6, column=0, padx='5', pady='5', sticky='ew')
 entryAllowAlternatePorts = Entry(master=tkFenster, bg='white', width='32')
 entryAllowAlternatePorts.grid(row=6, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryAllowAlternatePorts,balloonmsg= _("AllowAlternatePorts"))
+balloon.bind_widget(entryAllowAlternatePorts,balloonmsg= _("AllowAlternatePorts Not Used.\nLeave it always False."))
 
 # Label mit Aufschrift ExternalHostName
 labelExternalHostName = Label(master=tkFenster, bg='#F9CDAD', text=_('External Host Name'))
@@ -486,7 +482,7 @@ labelExternalHostName.grid(row=7, column=0, padx='5', pady='5', sticky='ew')
 entryExternalHostName = Entry(master=tkFenster, bg='white', width='32')
 entryExternalHostName.grid(row=7, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryExternalHostName,balloonmsg= _("External Host Name"))
+balloon.bind_widget(entryExternalHostName,balloonmsg= _("External IP Address of the router or FQDN.\n(must be the same for all regions on file)\nBlank creates SYSTEMIP"))
 
 # Label mit Aufschrift MaxPrims
 labelMaxPrims = Label(master=tkFenster, bg='#F9CDAD', text=_('Max Prims'))
@@ -495,7 +491,7 @@ labelMaxPrims.grid(row=8, column=0, padx='5', pady='5', sticky='ew')
 entryMaxPrims = Entry(master=tkFenster, bg='white', width='32')
 entryMaxPrims.grid(row=8, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryMaxPrims,balloonmsg= _("Limit prims to the regions."))
+balloon.bind_widget(entryMaxPrims,balloonmsg= _("The maximum number of prims that the region will be listed as supporting.\nHowever, this limit is not currently enforced by OpenSimulator.\nDue to LL protocol constraints,\nthe maximum limit that can be shown is 45000."))
 
 # Label mit Aufschrift MaxAgents
 labelMaxAgents = Label(master=tkFenster, bg='#F9CDAD', text=_('Max Agents'))
@@ -504,7 +500,7 @@ labelMaxAgents.grid(row=9, column=0, padx='5', pady='5', sticky='ew')
 entryMaxAgents = Entry(master=tkFenster, bg='white', width='32')
 entryMaxAgents.grid(row=9, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryMaxAgents,balloonmsg= _("Limit Agents to the regions."))
+balloon.bind_widget(entryMaxAgents,balloonmsg= _("The maximum number of agents that can be in the in the region at any given time."))
 
 # Label mit Aufschrift DefaultLanding
 labelDefaultLanding = Label(master=tkFenster, bg='#F9CDAD', text=_('Default Landing'))
@@ -513,7 +509,7 @@ labelDefaultLanding.grid(row=10, column=0, padx='5', pady='5', sticky='ew')
 entryDefaultLanding = Entry(master=tkFenster, bg='white', width='32')
 entryDefaultLanding.grid(row=10, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryDefaultLanding,balloonmsg= _("DefaultLanding"))
+balloon.bind_widget(entryDefaultLanding,balloonmsg= _("Default Landing\nexample: 128,128,21"))
 # Checkbutton für DefaultLanding
 checkDefaultLanding = IntVar()
 Checkbutton(tkFenster, text=_("turn on"), variable=checkDefaultLanding).grid(row=10, column=2, sticky=W)
@@ -525,7 +521,7 @@ labelNonPhysicalPrimMax.grid(row=11, column=0, padx='5', pady='5', sticky='ew')
 entryNonPhysicalPrimMax = Entry(master=tkFenster, bg='white', width='32')
 entryNonPhysicalPrimMax.grid(row=11, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryNonPhysicalPrimMax,balloonmsg= _("NonPhysicalPrimMax"))
+balloon.bind_widget(entryNonPhysicalPrimMax,balloonmsg= _("The maximum dimensions for a non-physical prim.\nThis is a single number which applies to X, Y and Z co-ordinates.\nThis will affect resizing of existing prims. Default is 256.\nThis setting can also be used in the [Startup] section of OpenSim.ini.\nIf the region setting exists then it will override the OpenSim.ini setting."))
 # Checkbutton für NonPhysicalPrimMax
 checkNonPhysicalPrimMax = IntVar()
 Checkbutton(tkFenster, text=_("turn on"), variable=checkNonPhysicalPrimMax).grid(row=11, column=2, sticky=W)
@@ -537,7 +533,7 @@ labelPhysicalPrimMax.grid(row=12, column=0, padx='5', pady='5', sticky='ew')
 entryPhysicalPrimMax = Entry(master=tkFenster, bg='white', width='32')
 entryPhysicalPrimMax.grid(row=12, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryPhysicalPrimMax,balloonmsg= _("PhysicalPrimMax"))
+balloon.bind_widget(entryPhysicalPrimMax,balloonmsg= _("The maximum dimensions of a physical prim. This is a single number which applies to X, Y and Z co-ordinates.\nThis will affect resizing of existing prims. Default is 10.\nThis setting can also be used in the [Startup] section of OpenSim.ini.\nIf the region setting exists then it will override the OpenSim.ini setting."))
 # Checkbutton für PhysicalPrimMax
 checkPhysicalPrimMax = IntVar()
 Checkbutton(tkFenster, text=_("turn on"), variable=checkPhysicalPrimMax).grid(row=12, column=2, sticky=W)
@@ -549,7 +545,7 @@ labelClampPrimSize.grid(row=13, column=0, padx='5', pady='5', sticky='ew')
 entryClampPrimSize = Entry(master=tkFenster, bg='white', width='32')
 entryClampPrimSize.grid(row=13, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryClampPrimSize,balloonmsg= _("ClampPrimSize"))
+balloon.bind_widget(entryClampPrimSize,balloonmsg= _("If true then if a viewer attempts to create a prim which has any dimension larger than the NonphysicalPrimMax,\nthen that dimension is reduced to NonphysicalPrimMax.\nDefault is false; This setting can also be used in the [Startup] section of OpenSim.ini.\nIf the region setting exists then it will override the OpenSim.ini setting."))
 # Checkbutton für ClampPrimSize
 checkClampPrimSize = IntVar()
 Checkbutton(tkFenster, text=_("turn on"), variable=checkClampPrimSize).grid(row=13, column=2, sticky=W)
@@ -561,7 +557,7 @@ labelMaxPrimsPerUser.grid(row=14, column=0, padx='5', pady='5', sticky='ew')
 entryMaxPrimsPerUser = Entry(master=tkFenster, bg='white', width='32')
 entryMaxPrimsPerUser.grid(row=14, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryMaxPrimsPerUser,balloonmsg= _("MaxPrimsPerUser"))
+balloon.bind_widget(entryMaxPrimsPerUser,balloonmsg= _("Number of prims that each user has available."))
 # Checkbutton für MaxPrimsPerUser
 checkMaxPrimsPerUser = IntVar()
 Checkbutton(tkFenster, text=_("turn on"), variable=checkMaxPrimsPerUser).grid(row=14, column=2, sticky=W)
@@ -585,7 +581,7 @@ labelRegionType.grid(row=16, column=0, padx='5', pady='5', sticky='ew')
 entryRegionType = Entry(master=tkFenster, bg='white', width='32')
 entryRegionType.grid(row=16, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryRegionType,balloonmsg= _("RegionType"))
+balloon.bind_widget(entryRegionType,balloonmsg= _("The region type as shown in the Covenant tab of the Region/Estate dialog in a standard Second Life viewer.\nCan be used to specify Mainland, Estate, etc. based on type of grid."))
 # Checkbutton für RegionType
 checkRegionType = IntVar()
 Checkbutton(tkFenster, text=_("turn on"), variable=checkRegionType).grid(row=16, column=2, sticky=W)
@@ -597,7 +593,7 @@ labelMaptileStaticUUID.grid(row=17, column=0, padx='5', pady='5', sticky='ew')
 entryMaptileStaticUUID = Entry(master=tkFenster, bg='white', width='32')
 entryMaptileStaticUUID.grid(row=17, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryMaptileStaticUUID,balloonmsg= _("MaptileStaticUUID"))
+balloon.bind_widget(entryMaptileStaticUUID,balloonmsg= _("UUID of texture to use as a maptile for this region.\nOnly set if you have disabled dynamic generation of the map tile from the region contents."))
 # Checkbutton für MaptileStaticUUID
 checkMaptileStaticUUID = IntVar()
 Checkbutton(tkFenster, text=_("turn on"), variable=checkMaptileStaticUUID).grid(row=17, column=2, sticky=W)
@@ -633,7 +629,7 @@ labelMasterAvatarFirstName.grid(row=20, column=0, padx='5', pady='5', sticky='ew
 entryMasterAvatarFirstName = Entry(master=tkFenster, bg='white', width='32')
 entryMasterAvatarFirstName.grid(row=20, column=1, padx='5', pady='5', sticky='ew')
 balloon = Balloon(tkFenster,bg="white", title="Help")
-balloon.bind_widget(entryMasterAvatarFirstName,balloonmsg= _("MasterAvatarFirstName"))
+balloon.bind_widget(entryMasterAvatarFirstName,balloonmsg= _("Master Avatar First Name"))
 # Checkbutton für MasterAvatarFirstName
 checkMasterAvatarFirstName = IntVar()
 Checkbutton(tkFenster, text=_("turn on"), variable=checkMasterAvatarFirstName).grid(row=20, column=2, sticky=W)
