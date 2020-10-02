@@ -1,12 +1,4 @@
 # OpenSim-RegionGenerator-Py3
 New source
 
-28.09.2020 
-
-Upgrade help
-
-Upgrade Translation (All languages except German are only machine translated.)
-
-new: region name + number
-
-Multiple has no function yet.
+02.10.2020 Upgrade counter clear
