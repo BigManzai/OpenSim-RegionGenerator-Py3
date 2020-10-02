@@ -286,11 +286,11 @@ def write_region():
     mapliste[1] = maplocationy # listeneintrag 1 ueberschreiben
 
     maplocationxinteger = int(mapliste[0]) # listeneintrag 0 als integer speichern
-    maplocationyinteger = int(mapliste[1]) # listeneintrag 0 als integer speichern
+    maplocationyinteger = int(mapliste[1]) # listeneintrag 1 als integer speichern
 
-    if counter % 2: #ungrade
+    if counter % 2: # ist der counter ungrade localisation x zaehler hoch setzen
        maplocationxinteger += counter
-    else: #grade
+    else: # oder ist der counter grade localisation y zaehler hoch setzen
        maplocationyinteger += counter
 
     maplocationxstring = str(maplocationxinteger)
