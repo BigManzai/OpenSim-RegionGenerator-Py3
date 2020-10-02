@@ -39,7 +39,7 @@ _ = langall.gettext
 # pyinstaller muss mit pip installiert werden.
 # pip install pyinstaller
 # Alle Python Skripte hinten anhängen.
-# pyinstaller --windowed --noconsole --onefile RegionGenerator.py
+# pyinstaller --windowed --noconsole --onefile RegionGenerator.py C:\Python38\Lib\gettext.py
 
 # Vari
 maplocation = ''
@@ -277,8 +277,25 @@ def write_region():
     maplocationx = entryLocationx.get() # Holt den string aus der Eingabe, hier die maplocation.
     maplocationy = entryLocationy.get() # Holt den string aus der Eingabe, hier die maplocation.
 
+    mapliste = ["5000", "5000"] # liste zum konvertieren von string und integer
+
     if maplocationx =='' : maplocationx = random.randrange(1000, 8000, 4)
     if maplocationy =='' : maplocationy = random.randrange(1000, 8000, 4)
+
+    mapliste[0] = maplocationx # listeneintrag 0 ueberschreiben
+    mapliste[1] = maplocationy # listeneintrag 1 ueberschreiben
+
+    maplocationxinteger = int(mapliste[0]) # listeneintrag 0 als integer speichern
+    maplocationyinteger = int(mapliste[1]) # listeneintrag 0 als integer speichern
+
+    if counter % 2: #ungrade
+       maplocationxinteger += counter
+    else: #grade
+       maplocationyinteger += counter
+
+    maplocationxstring = str(maplocationxinteger)
+    maplocationystring = str(maplocationyinteger)
+    newmaplocation = maplocationxstring + ',' + maplocationystring
 
     maplocationx = str(maplocationx) # int to str
     maplocationy = str(maplocationy)
@@ -299,7 +316,7 @@ def write_region():
 
     # Konfiguration erstellen.
     config[regionnameout] = {'RegionUUID': ruuid,
-                          'Location': maplocation,
+                          'Location': newmaplocation,
                           'SizeX': Size_var,
                           'SizeY': Size_var,
                           'SizeZ': Size_var,
