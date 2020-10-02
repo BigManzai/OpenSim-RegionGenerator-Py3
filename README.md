@@ -8,3 +8,5 @@ Upgrade help
 Upgrade Translation (All languages except German are only machine translated.)
 
 new: region name + number
+
+Multiple has no function yet.
