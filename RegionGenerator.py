@@ -6,7 +6,7 @@ import configparser
 import uuid
 import random
 from tkinter import *
-from tkinter.tix import * #Tooltips
+from tkinter.tix import * #tkinter Tooltips
 from tkinter import messagebox
 import random
 import gettext
@@ -149,16 +149,7 @@ def write_region():
     config = configparser.ConfigParser()
     global counter
     
-    # assemble region location
-    maplocationx = entryLocationx.get() # Holt den string aus der Eingabe, hier die maplocation.
-    maplocationy = entryLocationy.get() # Holt den string aus der Eingabe, hier die maplocation.
 
-    if maplocationx =='' : maplocationx = random.randrange(1000, 8000, 4)
-    if maplocationy =='' : maplocationy = random.randrange(1000, 8000, 4)
-
-    maplocationx = str(maplocationx) # int to str
-    maplocationy = str(maplocationy)
-    maplocation = maplocationx + ',' + maplocationy # Zusammensetzen Beispiel 1000,1000
 
     # capitalization gross- kleinschreibung beachten
     config.optionxform = str
@@ -166,9 +157,7 @@ def write_region():
     # generate a uuid for all entries
     ruuid = str(entryRegionUUID.get()) # Holt die Daten aus der Eingabe, hier die RegionUUID.
     if ruuid=='' : ruuid = randomuuid()
-    # Size
-    Size_var = str(entrySize.get()) # Holt die Daten aus der Eingabe, hier Size.
-    if Size_var=='' : Size_var = "256"
+
     # InternalPort
     InternalPort = str(entryInternalPort.get()) # Holt die Daten aus der Eingabe, hier der InternalPort.
     if InternalPort=='' : InternalPort = randomport()
@@ -280,6 +269,21 @@ def write_region():
     ExternalHostName = str(entryExternalHostName.get()) # Holt die Daten aus der Eingabe, hier ExternalHostName.
     if ExternalHostName =='' : ExternalHostName = "SYSTEMIP"
 
+    # Size
+    Size_var = entrySize.get() # Holt die Daten aus der Eingabe, hier Size.
+    if Size_var=='' : Size_var = "256"
+
+    # assemble region location
+    maplocationx = entryLocationx.get() # Holt den string aus der Eingabe, hier die maplocation.
+    maplocationy = entryLocationy.get() # Holt den string aus der Eingabe, hier die maplocation.
+
+    if maplocationx =='' : maplocationx = random.randrange(1000, 8000, 4)
+    if maplocationy =='' : maplocationy = random.randrange(1000, 8000, 4)
+
+    maplocationx = str(maplocationx) # int to str
+    maplocationy = str(maplocationy)
+    maplocation = maplocationx + ',' + maplocationy # Zusammensetzen Beispiel 1000,1000
+
     # region name
     regionname = str(entryRegionName.get()) # Holt die Daten aus der Eingabe, hier regionname.
     # Ist der Regionsname bereits vergeben dann Zahlen an den Regionsnamen anhaengen.
@@ -332,15 +336,21 @@ def createconfig():
 	    return n;
 
 def createmulti():
-    messagebox.showinfo(_("Create"), _("MultiRegion hat noch keine Funktion."))
+    messagebox.showinfo(_("Create"), _("Multiple has no function yet."))
 
 def start():
-    if checkMultiRegionamount.get()==0 : createconfig()
+    global counter
+    if checkMultiRegionamount.get()==0 : 
+        counter = 0
+        createconfig()
     else:
         createmulti()
     return;
 
 def clear_input_field():
+   global counter
+   counter = 0
+   # Entry clear
    entryRegionName.delete(0, END)
    entryLocationx.delete(0, END)
    entryLocationy.delete(0, END)
@@ -674,7 +684,6 @@ Checkbutton(tkFenster, text=_("Multiple"), variable=checkMultiRegionamount).grid
 ################################# Buttons ##################################################
 
 # Button zum Erstellen
-#RegionCreate = Button(master=tkFenster, text=_('Create'), width='22', bg='#00FFBC', command=createconfig)
 RegionCreate = Button(master=tkFenster, text=_('Create'), width='22', bg='#00FFBC', command=start)
 RegionCreate.grid(row=25, column=0, padx='5', pady='5')
 balloon = Balloon(tkFenster,bg="white", title="Help")
