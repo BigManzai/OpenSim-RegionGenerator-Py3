@@ -2,3 +2,5 @@
 New source
 
 02.10.2020 Upgrade counter clear
+
+03.10.2020 var region test
