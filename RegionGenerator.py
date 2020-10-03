@@ -1,6 +1,12 @@
 #! /usr/bin/env python
 #  -*- coding: utf-8 -*-
-#
+#####
+# Python 3.8.5
+# Dies ist ein Baukasten zum erstellen von OpenSimulator Region Konfigurationsdateien.
+# Weitere Informationen zu Regions.ini hier: http://opensimulator.org/wiki/Configuring_Regions
+# Dies erstellt auch automatisch Konfigurationsdateien indem es Zufallseintraege nutzt.
+# Die Sprachen koennen einfach erweitert werden.
+# Im jetzigen zustand funktioniert es noch nicht 100%, es sollte aber dennoch für viele eine grosse Hilfe sein.
 
 import configparser
 import uuid
@@ -12,6 +18,8 @@ import random
 import gettext
 
 gettext.install('RegionsGen')
+
+### Abschnitt zum testen der einzelnen Sprachen: ###
 #lang1 = gettext.translation('RegionsGen', 'locale', languages=['de']) # Nur eine Sprache
 #lang2 = gettext.translation('RegionsGen', 'locale', languages=['fr']) # Nur eine Sprache
 #lang3 = gettext.translation('RegionsGen', 'locale', languages=['es']) # Nur eine Sprache
