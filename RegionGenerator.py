@@ -11,12 +11,17 @@ from tkinter import messagebox
 import random
 import gettext
 
-
 gettext.install('RegionsGen')
 #lang1 = gettext.translation('RegionsGen', 'locale', languages=['de']) # Nur eine Sprache
+#lang2 = gettext.translation('RegionsGen', 'locale', languages=['fr']) # Nur eine Sprache
+#lang3 = gettext.translation('RegionsGen', 'locale', languages=['es']) # Nur eine Sprache
+#lang4 = gettext.translation('RegionsGen', 'locale', languages=['en']) # Nur eine Sprache
 #_ = lang1.gettext
+#_ = lang2.gettext
+#_ = lang3.gettext
+#_ = lang4.gettext
 
-langall = gettext.translation('RegionsGen', 'locale') # Automatische auswahl
+langall = gettext.translation('RegionsGen', 'locale') # Automatische auswahl der Sprache
 _ = langall.gettext
 
 # Uebersetzen geht so:
@@ -44,6 +49,7 @@ _ = langall.gettext
 # Vari
 maplocation = ''
 counter = 0
+mapsprung = 0
 
 # random name
 def randomname():
@@ -147,9 +153,7 @@ def randomuuid():
 # create a config file
 def write_region():
     config = configparser.ConfigParser()
-    global counter
-    
-
+    global counter  
 
     # capitalization gross- kleinschreibung beachten
     config.optionxform = str
@@ -194,90 +198,82 @@ def write_region():
     #checkResolveAdress = checkResolveAdress.get()
     if checkPhysicalPrimMax.get()==0 : checkPhysicalPrimMaxoff = ';'
     else: checkPhysicalPrimMaxoff = ''
-
     #entryClampPrimSize
     ClampPrimSize = str(entryClampPrimSize.get())
     if ClampPrimSize=='' : ClampPrimSize = 'False'
     #checkResolveAdress = checkResolveAdress.get()
     if checkClampPrimSize.get()==0 : checkClampPrimSizeoff = ';'
     else: checkClampPrimSizeoff = ''
-
     #entryMaxPrimsPerUser
     MaxPrimsPerUser = str(entryMaxPrimsPerUser.get())
     if MaxPrimsPerUser=='' : MaxPrimsPerUser = '-1'
     #checkResolveAdress = checkResolveAdress.get()
     if checkMaxPrimsPerUser.get()==0 : checkMaxPrimsPerUseroff = ';'
     else: checkMaxPrimsPerUseroff = ''
-
     #entryScopeID
     ScopeID = str(entryScopeID.get())
     if ScopeID=='' : ScopeID = ruuid
     #checkResolveAdress = checkResolveAdress.get()
     if checkScopeID.get()==0 : checkScopeIDoff = ';'
     else: checkScopeIDoff = ''
-
     #entryRegionType
     RegionType = str(entryRegionType.get())
     if RegionType=='' : RegionType = 'Mainland'
     #checkResolveAdress = checkResolveAdress.get()
     if checkRegionType.get()==0 : checkRegionTypeoff = ';'
     else: checkRegionTypeoff = ''
-
     #entryMaptileStaticUUID
     MaptileStaticUUID = str(entryMaptileStaticUUID.get())
     if MaptileStaticUUID=='' : MaptileStaticUUID = ruuid
     #checkResolveAdress = checkResolveAdress.get()
     if checkMaptileStaticUUID.get()==0 : checkMaptileStaticUUIDoff = ';'
     else: checkMaptileStaticUUIDoff = ''
-
     #entryMaptileStaticFile
     MaptileStaticFile = str(entryMaptileStaticFile.get())
     if MaptileStaticFile=='' : MaptileStaticFile = '"water.jpg"'
     #checkResolveAdress = checkResolveAdress.get()
     if checkMaptileStaticFile.get()==0 : checkMaptileStaticFileoff = ';'
     else: checkMaptileStaticFileoff = ''
-
     #entryMasterAvatarFirstName
     MasterAvatarFirstName = str(entryMasterAvatarFirstName.get())
     if MasterAvatarFirstName=='' : MasterAvatarFirstName = 'John'
     #checkResolveAdress = checkResolveAdress.get()
     if checkMasterAvatarFirstName.get()==0 : checkMasterAvatarFirstNameoff = ';'
     else: checkMasterAvatarFirstNameoff = ''
-
     #entryMasterAvatarLastName
     MasterAvatarLastName = str(entryMasterAvatarLastName.get())
     if MasterAvatarLastName=='' : MasterAvatarLastName = 'Doe'
     #checkResolveAdress = checkResolveAdress.get()
     if checkMasterAvatarLastName.get()==0 : checkMasterAvatarLastNameoff = ';'
     else: checkMasterAvatarLastNameoff = ''
-
     #entryMasterAvatarSandboxPassword
     MasterAvatarSandboxPassword = str(entryMasterAvatarSandboxPassword.get())
     if MasterAvatarSandboxPassword=='' : MasterAvatarSandboxPassword = 'passwd'
     #checkResolveAdress = checkResolveAdress.get()
     if checkMasterAvatarSandboxPassword.get()==0 : checkMasterAvatarSandboxPasswordoff = ';'
     else: checkMasterAvatarSandboxPasswordoff = ''
-
     #entryInternalAddress
     InternalAddress = str(entryInternalAddress.get())
     if InternalAddress =='' : InternalAddress = "0.0.0.0"
     #checkResolveAdress = checkResolveAdress.get()
     if checkResolveAdress.get()==0 : checkResolveAdressoff = ';'
     else: checkResolveAdressoff = ''
-
     # ExternalHostName
     ExternalHostName = str(entryExternalHostName.get()) # Holt die Daten aus der Eingabe, hier ExternalHostName.
     if ExternalHostName =='' : ExternalHostName = "SYSTEMIP"
 
+    mapliste = ["5000", "5000", "0"] # ich benutze hier eine liste zum konvertieren von string und integer weil ich sonst probleme von str nach int habe
+
     # Size
     Size_var = entrySize.get() # Holt die Daten aus der Eingabe, hier Size.
     if Size_var=='' : Size_var = "256"
+    mapliste[2] = Size_var # listeneintrag 2 ueberschreiben zum konvertieren von str to int
+    mapsprung = int(mapliste[2])//256 # beruecksichtigung von var regionen / = teilen mit komma // = teilen ohne komma - Beispiele: 1 = 256 single region ... 4 = var region 1024
+    print(mapsprung) # beruecksichtigung von var regionen test ausgabe 1 = 256 single region ... 4 = var region 1024
 
     # assemble region location
     maplocationx = entryLocationx.get() # Holt den string aus der Eingabe, hier die maplocation.
     maplocationy = entryLocationy.get() # Holt den string aus der Eingabe, hier die maplocation.
-
-    mapliste = ["5000", "5000"] # liste zum konvertieren von string und integer
 
     if maplocationx =='' : maplocationx = random.randrange(1000, 8000, 4)
     if maplocationy =='' : maplocationy = random.randrange(1000, 8000, 4)
@@ -288,17 +284,26 @@ def write_region():
     maplocationxinteger = int(mapliste[0]) # listeneintrag 0 als integer speichern
     maplocationyinteger = int(mapliste[1]) # listeneintrag 1 als integer speichern
 
-    if counter % 2: # ist der counter ungrade localisation x zaehler hoch setzen
-       maplocationxinteger += counter
-    else: # oder ist der counter grade localisation y zaehler hoch setzen
-       maplocationyinteger += counter
+    # aneinanderreien von regionen ohne random
+    if counter % 2: 
+        # ist der counter ungrade, localisation x zaehler hoch setzen
+        maplocationxinteger += counter # vor der beruecksichtigung der var groesse
+        print('X', maplocationxinteger) # vor der beruecksichtigung der var groesse test ausgabe
+        maplocationxinteger += mapsprung # nach der beruecksichtigung der var groesse
+        print('X', maplocationxinteger) # nach der beruecksichtigung der var groesse test ausgabe
+    else: 
+        # oder ist der counter grade, localisation y zaehler hoch setzen
+        maplocationyinteger += counter # vor der beruecksichtigung der var groesse
+        print('Y', maplocationyinteger) # vor der beruecksichtigung der var groesse test ausgabe
+        maplocationyinteger += mapsprung # nach der beruecksichtigung der var groesse
+        print('Y', maplocationyinteger) # nach der beruecksichtigung der var groesse test ausgabe
 
-    maplocationxstring = str(maplocationxinteger)
-    maplocationystring = str(maplocationyinteger)
-    newmaplocation = maplocationxstring + ',' + maplocationystring
+    maplocationxstring = str(maplocationxinteger) # int to str sonst kann das nicht in die konfiguration geschrieben werden
+    maplocationystring = str(maplocationyinteger) # int to str sonst kann das nicht in die konfiguration geschrieben werden
+    newmaplocation = maplocationxstring + ',' + maplocationystring # zusammenbauen zu beispiel: 1000,1000
 
-    maplocationx = str(maplocationx) # int to str
-    maplocationy = str(maplocationy)
+    maplocationx = str(maplocationx) # int to str sonst kann das nicht in die konfiguration geschrieben werden
+    maplocationy = str(maplocationy) # int to str sonst kann das nicht in die konfiguration geschrieben werden
     maplocation = maplocationx + ',' + maplocationy # Zusammensetzen Beispiel 1000,1000
 
     # region name
@@ -340,8 +345,6 @@ def write_region():
                           checkMasterAvatarLastNameoff + 'MasterAvatarLastName': MasterAvatarLastName,
                           checkMasterAvatarSandboxPasswordoff + 'MasterAvatarSandboxPassword': MasterAvatarSandboxPassword}
 
-    ##### Dateinamen aendern falls er schon vorhanden ist #####
-
     with open(confdatei + '.ini', 'w') as configfile: config.write(configfile)
 
 def createconfig():
@@ -352,21 +355,10 @@ def createconfig():
     else:
 	    return n;
 
-def createmulti():
-    messagebox.showinfo(_("Create"), _("Multiple has no function yet."))
-
-def start():
-    global counter
-    if checkMultiRegionamount.get()==0 : 
-        counter = 0
-        createconfig()
-    else:
-        createmulti()
-    return;
-
 def clear_input_field():
-   global counter
+   global counter, mapsprung
    counter = 0
+   mapsprung = 0
    # Entry clear
    entryRegionName.delete(0, END)
    entryLocationx.delete(0, END)
@@ -430,9 +422,9 @@ tkFenster = Tk()
 tkFenster.title('RegionsGenerator') # Titel des Fensters.
 tkFenster.iconbitmap('opensim.ico') # Bild des Fensters.
 tkFenster.configure(bg='#E8E8E8') # Hintergrundfarbe des Fensters.
-#tkFenster.geometry("800x850+937+134") # Groesse des Fensters.
+#tkFenster.geometry("800x850+937+134") # Groesse des Fensters vorgeben.
 
-# Rot #FFCFC9 Gruen #00FFBC Gelb #FFF070
+# Rot #FFCFC9 - Gruen #00FFBC - Gelb #FFF070
 
 # Label mit Aufschrift RegionName
 labelRegionName = Label(master=tkFenster, bg='#F9CDAD', text=_('Region Name'))
@@ -694,14 +686,15 @@ entryRegionamount.grid(row=23, column=1, padx='5', pady='5', sticky='ew')
 entryRegionamount.insert(10, "1") # Mindestens eine Region erstellen.
 balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(entryRegionamount,balloonmsg= _("The desired number of regions."))
-# Checkbutton für MultiRegionamount
-checkMultiRegionamount = IntVar()
-Checkbutton(tkFenster, text=_("Multiple"), variable=checkMultiRegionamount).grid(row=23, column=2, sticky=W)
+
+# Label als Platzhalter zu den Buttons
+labelRegionamount = Label(master=tkFenster, text=' ')
+labelRegionamount.grid(row=24, column=0, padx='5', pady='5', sticky='ew')
 
 ################################# Buttons ##################################################
 
 # Button zum Erstellen
-RegionCreate = Button(master=tkFenster, text=_('Create'), width='22', bg='#00FFBC', command=start)
+RegionCreate = Button(master=tkFenster, text=_('Create'), width='22', bg='#00FFBC', command=createconfig)
 RegionCreate.grid(row=25, column=0, padx='5', pady='5')
 balloon = Balloon(tkFenster,bg="white", title="Help")
 balloon.bind_widget(RegionCreate,balloonmsg= _("Creating the region configurations."))
