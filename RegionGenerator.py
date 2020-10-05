@@ -58,6 +58,8 @@ _ = langall.gettext
 maplocation = ''
 counter = 0
 mapsprung = 0
+xcounter = 0
+ycounter = 0
 
 # random name
 def randomname():
@@ -136,13 +138,13 @@ def randomname():
     return name;
 
 def helping():
-    messagebox.showinfo(_("Help"), _("Help comes here later."))
+    messagebox.showinfo(_("Help"), _("The created region configuration files only need to be moved to the Regions directory.\n\nThen restart the OpenSimulator.\n\nPlease a maximum of 15 standard regions per OpenSimulator when using mySQL.\n\nIf you use mesh on your regions, please drastically reduce the number of regions per OpenSimulator.\n\nIf you use a lot of mesh and scripts, it is better to only use one region per OpenSimulator.\n\nVariable VAR regions should always run individually.\n\nWhen using sqLite you should be careful, a region with around 6000 prims is roughly the limit, after which errors can occur in the database."))
     return;
 
 def close_window(): 
-    tkFenster.destroy()
+    tkFenster.destroy() # Fenster schiessen
 
-# make a random location
+# make a random location, wird nicht mehr aufgerufen und ist nur noch als Information hier.
 def randomlocation():
     maplocation = random.randrange(1000, 8000, 4)
     localmap = str(maplocation)
@@ -161,114 +163,132 @@ def randomuuid():
 # create a config file
 def write_region():
     config = configparser.ConfigParser()
-    global counter  
+    global counter, xcounter, ycounter
 
     # capitalization gross- kleinschreibung beachten
     config.optionxform = str
 
     # generate a uuid for all entries
     ruuid = str(entryRegionUUID.get()) # Holt die Daten aus der Eingabe, hier die RegionUUID.
-    if ruuid=='' : ruuid = randomuuid()
+    if ruuid=='' : ruuid = randomuuid() # Wenn leer dann eine Zufallszahl generieren.
 
     # InternalPort
     InternalPort = str(entryInternalPort.get()) # Holt die Daten aus der Eingabe, hier der InternalPort.
-    if InternalPort=='' : InternalPort = randomport()
+    if InternalPort=='' : InternalPort = randomport() # Wenn leer dann eine Zufallszahl generieren.
+
     # MaxPrims
     MaxPrims = str(entryMaxPrims.get()) # Holt die Daten aus der Eingabe, hier MaxPrims.
-    if MaxPrims=='' : MaxPrims = '10000'
+    if MaxPrims=='' : MaxPrims = '10000' # Wenn leer dann vorgabe verwenden.
+
     # MaxAgents
     MaxAgents = str(entryMaxAgents.get()) # Holt die Daten aus der Eingabe, hier MaxAgents.
-    if MaxAgents=='' : MaxAgents = '20'
-    #entryAllowAlternatePorts
-    AllowAlternatePorts = str(entryAllowAlternatePorts.get())
-    if AllowAlternatePorts=='' : AllowAlternatePorts = 'False'
-    #entryResolveAdress
-    ResolveAdress = str(entryResolveAdress.get())
-    if ResolveAdress=='' : ResolveAdress = 'False'
-    #checkResolveAdress
-    if checkResolveAdress.get()==0 : checkResolveAdressoff = ';'
+    if MaxAgents=='' : MaxAgents = '20' # Wenn leer dann vorgabe verwenden.
+
+    # AllowAlternatePorts
+    AllowAlternatePorts = str(entryAllowAlternatePorts.get()) # Holt die Daten aus der Eingabe
+    if AllowAlternatePorts=='' : AllowAlternatePorts = 'False' # Wenn leer dann vorgabe verwenden.
+
+    # ResolveAdress
+    ResolveAdress = str(entryResolveAdress.get()) # Holt die Daten aus der Eingabe
+    if ResolveAdress=='' : ResolveAdress = 'False' # Wen leer dann vorgabe verwenden.
+    # Einstellung ein- ausschalten.
+    if checkResolveAdress.get()==0 : checkResolveAdressoff = ';' # Einstellung ein- ausschalten.
     else: checkResolveAdressoff = ''
-    #entryDefaultLanding
-    DefaultLanding = str(entryDefaultLanding.get())
-    if DefaultLanding=='' : DefaultLanding = '128,128,21'
-    #checkDefaultLanding 
-    if checkDefaultLanding.get()==0 : checkDefaultLandingoff = ';'
+
+    # DefaultLanding
+    DefaultLanding = str(entryDefaultLanding.get()) # Holt die Daten aus der Eingabe
+    if DefaultLanding=='' : DefaultLanding = '128,128,21' # Wenn leer dann vorgabe verwenden.
+    # Einstellung ein- ausschalten.
+    if checkDefaultLanding.get()==0 : checkDefaultLandingoff = ';' # Einstellung ein- ausschalten.
     else: checkDefaultLandingoff = ''
-    #entryNonPhysicalPrimMax
-    NonPhysicalPrimMax = str(entryNonPhysicalPrimMax.get())
-    if NonPhysicalPrimMax=='' : NonPhysicalPrimMax = '1024'
-    #checkResolveAdress = checkResolveAdress.get()
-    if checkNonPhysicalPrimMax.get()==0 : checkNonPhysicalPrimMaxoff = ';'
+
+    # NonPhysicalPrimMax
+    NonPhysicalPrimMax = str(entryNonPhysicalPrimMax.get()) # Holt die Daten aus der Eingabe
+    if NonPhysicalPrimMax=='' : NonPhysicalPrimMax = '1024' # Wenn leer dann vorgabe verwenden.
+    # Einstellung ein- ausschalten.
+    if checkNonPhysicalPrimMax.get()==0 : checkNonPhysicalPrimMaxoff = ';' # Einstellung ein- ausschalten.
     else: checkNonPhysicalPrimMaxoff = ''
-    #entryPhysicalPrimMax
-    PhysicalPrimMax = str(entryPhysicalPrimMax.get())
-    if PhysicalPrimMax=='' : PhysicalPrimMax = '64'
-    #checkResolveAdress = checkResolveAdress.get()
-    if checkPhysicalPrimMax.get()==0 : checkPhysicalPrimMaxoff = ';'
+
+    # PhysicalPrimMax
+    PhysicalPrimMax = str(entryPhysicalPrimMax.get()) # Holt die Daten aus der Eingabe
+    if PhysicalPrimMax=='' : PhysicalPrimMax = '64' # Wen leer dann vorgabe verwenden.
+    # Einstellung ein- ausschalten.
+    if checkPhysicalPrimMax.get()==0 : checkPhysicalPrimMaxoff = ';' # Einstellung ein- ausschalten.
     else: checkPhysicalPrimMaxoff = ''
-    #entryClampPrimSize
-    ClampPrimSize = str(entryClampPrimSize.get())
-    if ClampPrimSize=='' : ClampPrimSize = 'False'
-    #checkResolveAdress = checkResolveAdress.get()
-    if checkClampPrimSize.get()==0 : checkClampPrimSizeoff = ';'
+    
+    # ClampPrimSize
+    ClampPrimSize = str(entryClampPrimSize.get()) # Holt die Daten aus der Eingabe
+    if ClampPrimSize=='' : ClampPrimSize = 'False' # Wenn leer dann vorgabe verwenden.
+    # Einstellung ein- ausschalten.
+    if checkClampPrimSize.get()==0 : checkClampPrimSizeoff = ';' # Einstellung ein- ausschalten.
     else: checkClampPrimSizeoff = ''
-    #entryMaxPrimsPerUser
-    MaxPrimsPerUser = str(entryMaxPrimsPerUser.get())
-    if MaxPrimsPerUser=='' : MaxPrimsPerUser = '-1'
-    #checkResolveAdress = checkResolveAdress.get()
-    if checkMaxPrimsPerUser.get()==0 : checkMaxPrimsPerUseroff = ';'
+
+    # MaxPrimsPerUser
+    MaxPrimsPerUser = str(entryMaxPrimsPerUser.get()) # Holt die Daten aus der Eingabe
+    if MaxPrimsPerUser=='' : MaxPrimsPerUser = '-1' # Wenn leer dann vorgabe verwenden.
+    # Einstellung ein- ausschalten.
+    if checkMaxPrimsPerUser.get()==0 : checkMaxPrimsPerUseroff = ';' # Einstellung ein- ausschalten.
     else: checkMaxPrimsPerUseroff = ''
-    #entryScopeID
-    ScopeID = str(entryScopeID.get())
-    if ScopeID=='' : ScopeID = ruuid
-    #checkResolveAdress = checkResolveAdress.get()
-    if checkScopeID.get()==0 : checkScopeIDoff = ';'
+
+    # ScopeID
+    ScopeID = str(entryScopeID.get()) # Holt die Daten aus der Eingabe
+    if ScopeID=='' : ScopeID = ruuid # Wen leer dann vorgabe verwenden.
+    # Einstellung ein- ausschalten.
+    if checkScopeID.get()==0 : checkScopeIDoff = ';' # Einstellung ein- ausschalten.
     else: checkScopeIDoff = ''
-    #entryRegionType
-    RegionType = str(entryRegionType.get())
-    if RegionType=='' : RegionType = 'Mainland'
-    #checkResolveAdress = checkResolveAdress.get()
-    if checkRegionType.get()==0 : checkRegionTypeoff = ';'
+
+    # RegionType
+    RegionType = str(entryRegionType.get()) # Holt die Daten aus der Eingabe
+    if RegionType=='' : RegionType = 'Mainland' # Wenn leer dann vorgabe verwenden.
+    # Einstellung ein- ausschalten.
+    if checkRegionType.get()==0 : checkRegionTypeoff = ';' # Einstellung ein- ausschalten.
     else: checkRegionTypeoff = ''
+
     #entryMaptileStaticUUID
-    MaptileStaticUUID = str(entryMaptileStaticUUID.get())
-    if MaptileStaticUUID=='' : MaptileStaticUUID = ruuid
-    #checkResolveAdress = checkResolveAdress.get()
-    if checkMaptileStaticUUID.get()==0 : checkMaptileStaticUUIDoff = ';'
+    MaptileStaticUUID = str(entryMaptileStaticUUID.get()) # Holt die Daten aus der Eingabe
+    if MaptileStaticUUID=='' : MaptileStaticUUID = ruuid # Wenn leer dann vorgabe verwenden.
+    # Einstellung ein- ausschalten.
+    if checkMaptileStaticUUID.get()==0 : checkMaptileStaticUUIDoff = ';' # Einstellung ein- ausschalten.
     else: checkMaptileStaticUUIDoff = ''
-    #entryMaptileStaticFile
-    MaptileStaticFile = str(entryMaptileStaticFile.get())
-    if MaptileStaticFile=='' : MaptileStaticFile = '"water.jpg"'
-    #checkResolveAdress = checkResolveAdress.get()
-    if checkMaptileStaticFile.get()==0 : checkMaptileStaticFileoff = ';'
+
+    # MaptileStaticFile
+    MaptileStaticFile = str(entryMaptileStaticFile.get()) # Holt die Daten aus der Eingabe
+    if MaptileStaticFile=='' : MaptileStaticFile = '"water.jpg"' # Wenn leer dann vorgabe verwenden.
+    # Einstellung ein- ausschalten.
+    if checkMaptileStaticFile.get()==0 : checkMaptileStaticFileoff = ';' # Einstellung ein- ausschalten.
     else: checkMaptileStaticFileoff = ''
-    #entryMasterAvatarFirstName
-    MasterAvatarFirstName = str(entryMasterAvatarFirstName.get())
-    if MasterAvatarFirstName=='' : MasterAvatarFirstName = 'John'
-    #checkResolveAdress = checkResolveAdress.get()
-    if checkMasterAvatarFirstName.get()==0 : checkMasterAvatarFirstNameoff = ';'
+
+    # MasterAvatarFirstName
+    MasterAvatarFirstName = str(entryMasterAvatarFirstName.get()) # Holt die Daten aus der Eingabe
+    if MasterAvatarFirstName=='' : MasterAvatarFirstName = 'John' # Wenn leer dann vorgabe verwenden.
+    # Einstellung ein- ausschalten.
+    if checkMasterAvatarFirstName.get()==0 : checkMasterAvatarFirstNameoff = ';' # Einstellung ein- ausschalten.
     else: checkMasterAvatarFirstNameoff = ''
-    #entryMasterAvatarLastName
-    MasterAvatarLastName = str(entryMasterAvatarLastName.get())
-    if MasterAvatarLastName=='' : MasterAvatarLastName = 'Doe'
-    #checkResolveAdress = checkResolveAdress.get()
-    if checkMasterAvatarLastName.get()==0 : checkMasterAvatarLastNameoff = ';'
+
+    # MasterAvatarLastName
+    MasterAvatarLastName = str(entryMasterAvatarLastName.get()) # Holt die Daten aus der Eingabe
+    if MasterAvatarLastName=='' : MasterAvatarLastName = 'Doe' # Wenn leer dann vorgabe verwenden.
+    # Einstellung ein- ausschalten.
+    if checkMasterAvatarLastName.get()==0 : checkMasterAvatarLastNameoff = ';' # Einstellung ein- ausschalten.
     else: checkMasterAvatarLastNameoff = ''
-    #entryMasterAvatarSandboxPassword
-    MasterAvatarSandboxPassword = str(entryMasterAvatarSandboxPassword.get())
-    if MasterAvatarSandboxPassword=='' : MasterAvatarSandboxPassword = 'passwd'
-    #checkResolveAdress = checkResolveAdress.get()
-    if checkMasterAvatarSandboxPassword.get()==0 : checkMasterAvatarSandboxPasswordoff = ';'
+
+    # MasterAvatarSandboxPassword
+    MasterAvatarSandboxPassword = str(entryMasterAvatarSandboxPassword.get()) # Holt die Daten aus der Eingabe
+    if MasterAvatarSandboxPassword=='' : MasterAvatarSandboxPassword = 'passwd' # Wenn leer dann vorgabe verwenden.
+    # Einstellung ein- ausschalten.
+    if checkMasterAvatarSandboxPassword.get()==0 : checkMasterAvatarSandboxPasswordoff = ';' # Einstellung ein- ausschalten.
     else: checkMasterAvatarSandboxPasswordoff = ''
-    #entryInternalAddress
-    InternalAddress = str(entryInternalAddress.get())
-    if InternalAddress =='' : InternalAddress = "0.0.0.0"
-    #checkResolveAdress = checkResolveAdress.get()
-    if checkResolveAdress.get()==0 : checkResolveAdressoff = ';'
+
+    # InternalAddress
+    InternalAddress = str(entryInternalAddress.get()) # Holt die Daten aus der Eingabe
+    if InternalAddress =='' : InternalAddress = "0.0.0.0" # Wenn leer dann vorgabe verwenden.
+    # Einstellung ein- ausschalten.
+    if checkResolveAdress.get()==0 : checkResolveAdressoff = ';' # Einstellung ein- ausschalten.
     else: checkResolveAdressoff = ''
+
     # ExternalHostName
     ExternalHostName = str(entryExternalHostName.get()) # Holt die Daten aus der Eingabe, hier ExternalHostName.
-    if ExternalHostName =='' : ExternalHostName = "SYSTEMIP"
+    if ExternalHostName =='' : ExternalHostName = "SYSTEMIP" # Wenn leer dann vorgabe verwenden.
 
     mapliste = ["5000", "5000", "0"] # ich benutze hier eine liste zum konvertieren von string und integer weil ich sonst probleme von str nach int habe
 
@@ -283,8 +303,8 @@ def write_region():
     maplocationx = entryLocationx.get() # Holt den string aus der Eingabe, hier die maplocation.
     maplocationy = entryLocationy.get() # Holt den string aus der Eingabe, hier die maplocation.
 
-    if maplocationx =='' : maplocationx = random.randrange(1000, 8000, 4)
-    if maplocationy =='' : maplocationy = random.randrange(1000, 8000, 4)
+    if maplocationx =='' : maplocationx = random.randrange(1000, 8000, 4) # Zufallszahl generieren
+    if maplocationy =='' : maplocationy = random.randrange(1000, 8000, 4) # Zufallszahl generieren
 
     mapliste[0] = maplocationx # listeneintrag 0 ueberschreiben
     mapliste[1] = maplocationy # listeneintrag 1 ueberschreiben
@@ -292,19 +312,26 @@ def write_region():
     maplocationxinteger = int(mapliste[0]) # listeneintrag 0 als integer speichern
     maplocationyinteger = int(mapliste[1]) # listeneintrag 1 als integer speichern
 
-    # aneinanderreien von regionen ohne random
-    if counter % 2: 
-        # ist der counter ungrade, localisation x zaehler hoch setzen
-        maplocationxinteger += counter # vor der beruecksichtigung der var groesse
-        print('X', maplocationxinteger) # vor der beruecksichtigung der var groesse test ausgabe
-        maplocationxinteger += mapsprung # nach der beruecksichtigung der var groesse
-        print('X', maplocationxinteger) # nach der beruecksichtigung der var groesse test ausgabe
-    else: 
-        # oder ist der counter grade, localisation y zaehler hoch setzen
-        maplocationyinteger += counter # vor der beruecksichtigung der var groesse
-        print('Y', maplocationyinteger) # vor der beruecksichtigung der var groesse test ausgabe
-        maplocationyinteger += mapsprung # nach der beruecksichtigung der var groesse
-        print('Y', maplocationyinteger) # nach der beruecksichtigung der var groesse test ausgabe
+    # Aneinanderreien von Regionen ohne random
+    # TODO: Neu machen das ist Falsch so. Ich habe mich mit den countern festgefahren. Besser direkt 2 bauschleifen machen.
+    if counter > 0: # Ist der counter = 0 die angegebene Position nutzen, ansonsten zaehler unter beruecksichtigung der Regionsgroesse hochsetzen.
+        print('Start X,Y:', maplocationxinteger , ',' , maplocationyinteger) # 
+        if counter % 2:
+            # ist der counter ungrade, localisation x zaehler hoch setzen
+            maplocationxinteger += counter # vor der beruecksichtigung der var groesse
+            print('counter X', maplocationxinteger) # vor der beruecksichtigung der var groesse test ausgabe
+            if mapsprung > 1: maplocationxinteger += mapsprung # nach der beruecksichtigung der var groesse
+            print('mapsprung X', maplocationxinteger) # nach der beruecksichtigung der var groesse test ausgabe
+            #maplocationyinteger += counter # Y muss sich auch aendern?
+            print('ungrade X,Y:', maplocationxinteger , ',' , maplocationyinteger) # nach der beruecksichtigung der var groesse test ausgabe
+        else: 
+            # oder ist der counter grade, localisation y zaehler hoch setzen
+            maplocationyinteger += counter # vor der beruecksichtigung der var groesse
+            print('counter Y', maplocationyinteger) # vor der beruecksichtigung der var groesse test ausgabe
+            if mapsprung > 1: maplocationyinteger += mapsprung # nach der beruecksichtigung der var groesse
+            print('mapsprung Y', maplocationyinteger) # nach der beruecksichtigung der var groesse test ausgabe
+            maplocationxinteger += counter # X muss sich auch aendern?
+            print('grade X,Y:', maplocationxinteger , ',' , maplocationyinteger) # nach der beruecksichtigung der var groesse test ausgabe
 
     maplocationxstring = str(maplocationxinteger) # int to str sonst kann das nicht in die konfiguration geschrieben werden
     maplocationystring = str(maplocationyinteger) # int to str sonst kann das nicht in die konfiguration geschrieben werden
@@ -315,7 +342,7 @@ def write_region():
     maplocation = maplocationx + ',' + maplocationy # Zusammensetzen Beispiel 1000,1000
 
     # region name
-    regionname = str(entryRegionName.get()) # Holt die Daten aus der Eingabe, hier regionname.
+    regionname = entryRegionName.get() # Holt die Daten aus der Eingabe, hier regionname.
     # Ist der Regionsname bereits vergeben dann Zahlen an den Regionsnamen anhaengen.
     if regionname =='' : 
         regionname = randomname()
@@ -324,7 +351,7 @@ def write_region():
         regionnameout = regionname + ' ' + str(counter)
         counter += 1
 
-    # Leerzeichen durch unterstriche austauschen.
+    # Leerzeichen durch unterstriche austauschen denn leerzeichen sind im Dateinamen nicht erlaubt.
     confdatei = regionnameout.replace(" ", "_")
 
     # Konfiguration erstellen.
@@ -364,8 +391,10 @@ def createconfig():
 	    return n;
 
 def clear_input_field():
-   global counter, mapsprung
+   global counter, mapsprung, xcounter, ycounter
    counter = 0
+   xcounter = 0
+   ycounter = 0
    mapsprung = 0
    # Entry clear
    entryRegionName.delete(0, END)
