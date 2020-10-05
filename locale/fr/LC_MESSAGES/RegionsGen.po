@@ -5,41 +5,69 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2020-09-28 10:21+0200\n"
-"PO-Revision-Date: 2020-09-28 11:05+0200\n"
+"POT-Creation-Date: 2020-10-05 19:22+0200\n"
+"PO-Revision-Date: 2020-10-05 19:28+0200\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: pygettext.py 1.5\n"
 "X-Generator: Poedit 2.4.1\n"
-"Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Language: fr\n"
 
-#: RegionGenerator.py:125
-msgid "Help comes here later."
-msgstr "L’aide vient ici plus tard."
+#: RegionGenerator.py:141
+msgid ""
+"The created region configuration files only need to be moved to the Regions "
+"directory.\n"
+"\n"
+"Then restart the OpenSimulator.\n"
+"\n"
+"Please a maximum of 15 standard regions per OpenSimulator when using mySQL.\n"
+"\n"
+"If you use mesh on your regions, please drastically reduce the number of "
+"regions per OpenSimulator.\n"
+"\n"
+"If you use a lot of mesh and scripts, it is better to only use one region "
+"per OpenSimulator.\n"
+"\n"
+"Variable VAR regions should always run individually.\n"
+"\n"
+"When using sqLite you should be careful, a region with around 6000 prims is "
+"roughly the limit, after which errors can occur in the database."
+msgstr ""
+"Les fichiers de configuration de région créés doivent uniquement être "
+"déplacés vers le répertoire Régions.\n"
+"\n"
+"Redémarrez ensuite le OpenSimulator.\n"
+"\n"
+"Veuillez utiliser mySQL, un maximum de 15 régions standard par "
+"OpenSimulator.\n"
+"\n"
+"Si vous utilisez des mailles sur vos régions, réduisez considérablement le "
+"nombre de régions par OpenSimulator.\n"
+"\n"
+"Si vous utilisez beaucoup de mailles et de scripts, il est préférable "
+"d’utiliser seulement une région par OpenSimulator.\n"
+"\n"
+"Les régions VAR variables doivent toujours fonctionner individuellement.\n"
+"\n"
+"Lors de l’utilisation sqLite vous devez être prudent, une région avec "
+"environ 6000 prims est à peu près la limite, après quoi des erreurs peuvent "
+"se produire dans la base de données."
 
-#: RegionGenerator.py:125 RegionGenerator.py:690
+#: RegionGenerator.py:141 RegionGenerator.py:746
 msgid "Help"
 msgstr "Aide"
 
-#: RegionGenerator.py:335
-msgid "MultiRegion hat noch keine Funktion."
-msgstr "MultiRegion hat noch keine Funktion."
-
-#: RegionGenerator.py:335 RegionGenerator.py:678
-msgid "Create"
-msgstr "Créer"
-
-#: RegionGenerator.py:411
+#: RegionGenerator.py:467
 msgid "Region Name"
 msgstr ""
 "Nom de la région\n"
 " "
 
-#: RegionGenerator.py:417
+#: RegionGenerator.py:473
 msgid ""
 "insert region name\n"
 "example: My Virtual Land\n"
@@ -49,11 +77,11 @@ msgstr ""
 "exemple : Ma terre virtuelle\n"
 "blanc crée un aléatoire."
 
-#: RegionGenerator.py:420
+#: RegionGenerator.py:476
 msgid "Location"
 msgstr "Emplacement"
 
-#: RegionGenerator.py:429
+#: RegionGenerator.py:485
 msgid ""
 "Location x\n"
 "example: 5000\n"
@@ -63,7 +91,7 @@ msgstr ""
 "exemple: 5000\n"
 "blanc crée un aléatoire."
 
-#: RegionGenerator.py:431
+#: RegionGenerator.py:487
 msgid ""
 "Location y\n"
 "example: 5000\n"
@@ -73,11 +101,11 @@ msgstr ""
 "exemple: 5000\n"
 "blanc crée un aléatoire."
 
-#: RegionGenerator.py:434
+#: RegionGenerator.py:490
 msgid "Region UUID"
 msgstr "Région UUID"
 
-#: RegionGenerator.py:440
+#: RegionGenerator.py:496
 msgid ""
 "Region UUID\n"
 "blank creates a random."
@@ -85,11 +113,11 @@ msgstr ""
 "Région UUID\n"
 "blanc crée un aléatoire."
 
-#: RegionGenerator.py:443
+#: RegionGenerator.py:499
 msgid "Size"
 msgstr "Taille"
 
-#: RegionGenerator.py:449
+#: RegionGenerator.py:505
 msgid ""
 "If size is not specified it will\n"
 "default to the legacy size of 256.\n"
@@ -99,11 +127,11 @@ msgstr ""
 "par défaut à la taille héritée de 256.\n"
 "blanc crée 256."
 
-#: RegionGenerator.py:452
+#: RegionGenerator.py:508
 msgid "Internal Address"
 msgstr "Adresse interne"
 
-#: RegionGenerator.py:458
+#: RegionGenerator.py:514
 msgid ""
 "Internal Address\n"
 "standard: 0.0.0.0"
@@ -111,11 +139,11 @@ msgstr ""
 "Adresse interne\n"
 "norme: 0.0.0.0"
 
-#: RegionGenerator.py:461
+#: RegionGenerator.py:517
 msgid "Internal Port"
 msgstr "Port interne"
 
-#: RegionGenerator.py:467
+#: RegionGenerator.py:523
 msgid ""
 "IP port for all incoming client connections.\n"
 "Blank creates a random."
@@ -123,11 +151,11 @@ msgstr ""
 "Port IP pour toutes les connexions client entrantes.\n"
 "Blank crée un aléatoire."
 
-#: RegionGenerator.py:470
+#: RegionGenerator.py:526
 msgid "Allow Alternate Ports"
 msgstr "Autoriser les ports alternatifs"
 
-#: RegionGenerator.py:476
+#: RegionGenerator.py:532
 msgid ""
 "AllowAlternatePorts Not Used.\n"
 "Leave it always False."
@@ -135,11 +163,11 @@ msgstr ""
 "AllowAlternatePorts non utilisé.\n"
 "Laissez-le toujours faux."
 
-#: RegionGenerator.py:479
+#: RegionGenerator.py:535
 msgid "External Host Name"
 msgstr "Nom de l’hôte externe"
 
-#: RegionGenerator.py:485
+#: RegionGenerator.py:541
 msgid ""
 "External IP Address of the router or FQDN.\n"
 "(must be the same for all regions on file)\n"
@@ -149,11 +177,11 @@ msgstr ""
 "(doit être le même pour toutes les régions du dossier)\n"
 "Blank crée SYSTEMIP"
 
-#: RegionGenerator.py:488
+#: RegionGenerator.py:544
 msgid "Max Prims"
 msgstr "Max Prims"
 
-#: RegionGenerator.py:494
+#: RegionGenerator.py:550
 msgid ""
 "The maximum number of prims that the region will be listed as supporting.\n"
 "However, this limit is not currently enforced by OpenSimulator.\n"
@@ -161,28 +189,26 @@ msgid ""
 "the maximum limit that can be shown is 45000."
 msgstr ""
 "Le nombre maximal de prims que la région sera répertorié comme support.\n"
-"Toutefois, cette limite n’est pas actuellement appliquée par "
-"OpenSimulator.\n"
+"Toutefois, cette limite n’est pas actuellement appliquée par OpenSimulator.\n"
 "En raison de contraintes de protocole LL,\n"
 "la limite maximale qui peut être affichée est de 45000."
 
-#: RegionGenerator.py:497
+#: RegionGenerator.py:553
 msgid "Max Agents"
 msgstr "Max Agents"
 
-#: RegionGenerator.py:503
+#: RegionGenerator.py:559
 msgid ""
 "The maximum number of agents that can be in the in the region at any given "
 "time."
 msgstr ""
-"Le nombre maximum d’agents qui peuvent être dans la région à un moment "
-"donné."
+"Le nombre maximum d’agents qui peuvent être dans la région à un moment donné."
 
-#: RegionGenerator.py:506
+#: RegionGenerator.py:562
 msgid "Default Landing"
 msgstr "Atterrissage par défaut"
 
-#: RegionGenerator.py:512
+#: RegionGenerator.py:568
 msgid ""
 "Default Landing\n"
 "example: 128,128,21"
@@ -190,19 +216,19 @@ msgstr ""
 "Atterrissage par défaut\n"
 "exemple : 128 128,21"
 
-#: RegionGenerator.py:515 RegionGenerator.py:527 RegionGenerator.py:539
-#: RegionGenerator.py:551 RegionGenerator.py:563 RegionGenerator.py:575
-#: RegionGenerator.py:587 RegionGenerator.py:599 RegionGenerator.py:611
-#: RegionGenerator.py:623 RegionGenerator.py:635 RegionGenerator.py:647
-#: RegionGenerator.py:659
+#: RegionGenerator.py:571 RegionGenerator.py:583 RegionGenerator.py:595
+#: RegionGenerator.py:607 RegionGenerator.py:619 RegionGenerator.py:631
+#: RegionGenerator.py:643 RegionGenerator.py:655 RegionGenerator.py:667
+#: RegionGenerator.py:679 RegionGenerator.py:691 RegionGenerator.py:703
+#: RegionGenerator.py:715
 msgid "turn on"
 msgstr "s’allumer"
 
-#: RegionGenerator.py:518
+#: RegionGenerator.py:574
 msgid "Non Physical Prim Max"
 msgstr "Non physique Prim Max"
 
-#: RegionGenerator.py:524
+#: RegionGenerator.py:580
 msgid ""
 "The maximum dimensions for a non-physical prim.\n"
 "This is a single number which applies to X, Y and Z co-ordinates.\n"
@@ -214,15 +240,15 @@ msgstr ""
 "Il s’agit d’un numéro unique qui s’applique aux coordonnées X, Y et Z.\n"
 "Cela affectera la redimensionnement des prims existants. Par défaut est "
 "256.\n"
-"Ce paramètre peut également être utilisé dans la section [Startup] "
-"d’OpenSim.ini.\n"
+"Ce paramètre peut également être utilisé dans la section [Startup] d’OpenSim."
+"ini.\n"
 "Si le paramètre de région existe, il remplacera le paramètre OpenSim.ini."
 
-#: RegionGenerator.py:530
+#: RegionGenerator.py:586
 msgid "Physical Prim Max"
 msgstr "Physique Prim Max"
 
-#: RegionGenerator.py:536
+#: RegionGenerator.py:592
 msgid ""
 "The maximum dimensions of a physical prim. This is a single number which "
 "applies to X, Y and Z co-ordinates.\n"
@@ -232,17 +258,16 @@ msgid ""
 msgstr ""
 "Les dimensions maximales d’un prim physique. Il s’agit d’un numéro unique "
 "qui s’applique aux coordonnées X, Y et Z.\n"
-"Cela affectera la redimensionnement des prims existants. Par défaut est "
-"10.\n"
-"Ce paramètre peut également être utilisé dans la section [Startup] "
-"d’OpenSim.ini.\n"
+"Cela affectera la redimensionnement des prims existants. Par défaut est 10.\n"
+"Ce paramètre peut également être utilisé dans la section [Startup] d’OpenSim."
+"ini.\n"
 "Si le paramètre de région existe, il remplacera le paramètre OpenSim.ini."
 
-#: RegionGenerator.py:542
+#: RegionGenerator.py:598
 msgid "Clamp Prim Size"
 msgstr "Taille prim de pince"
 
-#: RegionGenerator.py:548
+#: RegionGenerator.py:604
 msgid ""
 "If true then if a viewer attempts to create a prim which has any dimension "
 "larger than the NonphysicalPrimMax,\n"
@@ -258,27 +283,27 @@ msgstr ""
 "dans la section [Startup] d’OpenSim.ini.\n"
 "Si le paramètre de région existe, il remplacera le paramètre OpenSim.ini."
 
-#: RegionGenerator.py:554
+#: RegionGenerator.py:610
 msgid "Max Prims Per User"
 msgstr "Prims max par utilisateur"
 
-#: RegionGenerator.py:560
+#: RegionGenerator.py:616
 msgid "Number of prims that each user has available."
 msgstr "Nombre de prims disponibles pour chaque utilisateur."
 
-#: RegionGenerator.py:566
+#: RegionGenerator.py:622
 msgid "Scope ID"
 msgstr "ID d’étendue"
 
-#: RegionGenerator.py:572
+#: RegionGenerator.py:628
 msgid "ScopeID"
 msgstr "ScopeID"
 
-#: RegionGenerator.py:578
+#: RegionGenerator.py:634
 msgid "Region Type"
 msgstr "Type de région"
 
-#: RegionGenerator.py:584
+#: RegionGenerator.py:640
 msgid ""
 "The region type as shown in the Covenant tab of the Region/Estate dialog in "
 "a standard Second Life viewer.\n"
@@ -286,14 +311,14 @@ msgid ""
 msgstr ""
 "Type de région comme indiqué dans l’onglet Pacte de la boîte de dialogue "
 "Région/Succession dans une visionneuse Seconde Vie standard.\n"
-"Peut être utilisé pour spécifier continent, domaine, etc en fonction du "
-"type de grille."
+"Peut être utilisé pour spécifier continent, domaine, etc en fonction du type "
+"de grille."
 
-#: RegionGenerator.py:590
+#: RegionGenerator.py:646
 msgid "Maptile Static UUID"
 msgstr "Maptile Statique UUID"
 
-#: RegionGenerator.py:596
+#: RegionGenerator.py:652
 msgid ""
 "UUID of texture to use as a maptile for this region.\n"
 "Only set if you have disabled dynamic generation of the map tile from the "
@@ -303,66 +328,75 @@ msgstr ""
 "Définissez uniquement si vous avez désactivé la génération dynamique de la "
 "vignette de carte à partir du contenu de la région."
 
-#: RegionGenerator.py:602
+#: RegionGenerator.py:658
 msgid "Maptile Static File"
 msgstr "Fichier statique Maptile"
 
-#: RegionGenerator.py:608
+#: RegionGenerator.py:664
 msgid "MaptileStaticFile"
 msgstr "MaptileStaticFile"
 
-#: RegionGenerator.py:614
+#: RegionGenerator.py:670
 msgid "Resolve Adress"
 msgstr "Résoudre l’adresse"
 
-#: RegionGenerator.py:620
+#: RegionGenerator.py:676
 msgid "ResolveAdress"
 msgstr "ResolveAdresse"
 
-#: RegionGenerator.py:626 RegionGenerator.py:632
+#: RegionGenerator.py:682 RegionGenerator.py:688
 msgid "Master Avatar First Name"
 msgstr "Nom de maître Avatar Prénom"
 
-#: RegionGenerator.py:638 RegionGenerator.py:644
+#: RegionGenerator.py:694 RegionGenerator.py:700
 msgid "Master Avatar Last Name"
 msgstr "Nom de famille Master Avatar"
 
-#: RegionGenerator.py:650 RegionGenerator.py:656
+#: RegionGenerator.py:706 RegionGenerator.py:712
 msgid "Master Avatar Sandbox Password"
 msgstr "Mot de passe master Avatar Sandbox"
 
-#: RegionGenerator.py:662
+#: RegionGenerator.py:718
 msgid "Number of regions"
 msgstr "Nombre de régions"
 
-#: RegionGenerator.py:669
+#: RegionGenerator.py:725
 msgid "The desired number of regions."
 msgstr "Le nombre souhaité de régions."
 
-#: RegionGenerator.py:672
-msgid "Multiple"
-msgstr "Multiple"
+#: RegionGenerator.py:734
+msgid "Create"
+msgstr "Créer"
 
-#: RegionGenerator.py:681
+#: RegionGenerator.py:737
 msgid "Creating the region configurations."
 msgstr "Création des configurations de région."
 
-#: RegionGenerator.py:684
+#: RegionGenerator.py:740
 msgid "Clear"
 msgstr "Effacer"
 
-#: RegionGenerator.py:687
+#: RegionGenerator.py:743
 msgid "Delete data."
 msgstr "Supprimez les données."
 
-#: RegionGenerator.py:693
+#: RegionGenerator.py:749
 msgid "Request help."
 msgstr "Demandez de l’aide."
 
-#: RegionGenerator.py:696
+#: RegionGenerator.py:752
 msgid "Exit"
 msgstr "Quitter"
 
-#: RegionGenerator.py:699
+#: RegionGenerator.py:755
 msgid "Exit program."
 msgstr "Programme de sortie."
+
+#~ msgid "Help comes here later."
+#~ msgstr "L’aide vient ici plus tard."
+
+#~ msgid "MultiRegion hat noch keine Funktion."
+#~ msgstr "MultiRegion hat noch keine Funktion."
+
+#~ msgid "Multiple"
+#~ msgstr "Multiple"
