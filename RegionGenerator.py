@@ -151,7 +151,7 @@ def randomlocation():
     return localmap;
 
 # Map zusammenbauen
-def map(mapx, mapy):
+def osmap(mapx, mapy):
     global maplocation
     mapxstr = str(mapx) # int to str
     mapystr = str(mapy) # int to str
@@ -306,7 +306,6 @@ def write_region():
     if Size_var=='' : Size_var = "256"
     mapliste[2] = Size_var # listeneintrag 2 ueberschreiben zum konvertieren von str to int
     mapsprung = int(mapliste[2])//256 # beruecksichtigung von var regionen / = teilen mit komma // = teilen ohne komma - Beispiele: 1 = 256 single region ... 4 = var region 1024
-    print(mapsprung) # beruecksichtigung von var regionen test ausgabe 1 = 256 single region ... 4 = var region 1024
 
     # assemble region location
     maplocationx = entryLocationx.get() # Holt den string aus der Eingabe, hier die maplocation.
@@ -328,14 +327,14 @@ def write_region():
             # ist der counter ungrade, localisation x zaehler hoch setzen
             maplocationxinteger += counter # vor der beruecksichtigung der var groesse            
             if mapsprung > 1: maplocationxinteger += mapsprung # nach der beruecksichtigung der var groesse
-            map(maplocationxinteger, maplocationyinteger) # Neu map Beispiel: map(1000, 1000) ergibt eine variable string mit dem inhalt 1000,1000 die direkt in die config geschrieben werden kann.
+            osmap(maplocationxinteger, maplocationyinteger) # Neu map Beispiel: map(1000, 1000) ergibt eine variable string mit dem inhalt 1000,1000 die direkt in die config geschrieben werden kann.
         elif counter == 0:
-            map(maplocationxinteger, maplocationyinteger) # Damit bei der Region Null die loacalisation eingetragen wird.
+            osmap(maplocationxinteger, maplocationyinteger) # Damit bei der Region Null die loacalisation eingetragen wird.
         else: 
             # oder ist der counter grade, localisation y zaehler hoch setzen
             maplocationyinteger += counter # vor der beruecksichtigung der var groesse
             if mapsprung > 1: maplocationyinteger += mapsprung # nach der beruecksichtigung der var groesse
-            map(maplocationxinteger, maplocationyinteger) # Neu map Beispiel: map(1000, 1000) ergibt eine variable string mit dem inhalt 1000,1000 die direkt in die config geschrieben werden kann.
+            osmap(maplocationxinteger, maplocationyinteger) # Neu map Beispiel: map(1000, 1000) ergibt eine variable string mit dem inhalt 1000,1000 die direkt in die config geschrieben werden kann.
 
     # region name
     regionname = entryRegionName.get() # Holt die Daten aus der Eingabe, hier regionname.
