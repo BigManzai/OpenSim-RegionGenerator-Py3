@@ -150,6 +150,14 @@ def randomlocation():
     localmap = str(maplocation)
     return localmap;
 
+# Map zusammenbauen
+def map(mapx, mapy):
+    global maplocation
+    mapxstr = str(mapx) # int to str
+    mapystr = str(mapy) # int to str
+    maplocation = mapxstr + ',' + mapystr # zusammenbauen zu Beispiel: 1000,1000
+    return maplocation;
+
 # see if the user has entered a value or if it is random.
 def randomport():
     myport = random.randrange(9100, 9999, 4)
@@ -163,7 +171,7 @@ def randomuuid():
 # create a config file
 def write_region():
     config = configparser.ConfigParser()
-    global counter, xcounter, ycounter
+    global counter, xcounter, ycounter, maplocation
 
     # capitalization gross- kleinschreibung beachten
     config.optionxform = str
@@ -290,7 +298,8 @@ def write_region():
     ExternalHostName = str(entryExternalHostName.get()) # Holt die Daten aus der Eingabe, hier ExternalHostName.
     if ExternalHostName =='' : ExternalHostName = "SYSTEMIP" # Wenn leer dann vorgabe verwenden.
 
-    mapliste = ["5000", "5000", "0"] # ich benutze hier eine liste zum konvertieren von string und integer weil ich sonst probleme von str nach int habe
+    # mapliste: 0 = mapx, 1 = mapy, 2 = mapsprung var
+    mapliste = ["0", "1", "2"] # ich benutze hier eine liste zum konvertieren von string und integer weil ich sonst probleme von str nach int habe
 
     # Size
     Size_var = entrySize.get() # Holt die Daten aus der Eingabe, hier Size.
@@ -313,33 +322,20 @@ def write_region():
     maplocationyinteger = int(mapliste[1]) # listeneintrag 1 als integer speichern
 
     # Aneinanderreien von Regionen ohne random
-    # TODO: Neu machen das ist Falsch so. Ich habe mich mit den countern festgefahren. Besser direkt 2 bauschleifen machen.
+    # TODO: Neu machen das ist Falsch so. Ich habe mich mit den countern festgefahren.
     if counter > 0: # Ist der counter = 0 die angegebene Position nutzen, ansonsten zaehler unter beruecksichtigung der Regionsgroesse hochsetzen.
-        print('Start X,Y:', maplocationxinteger , ',' , maplocationyinteger) # 
         if counter % 2:
             # ist der counter ungrade, localisation x zaehler hoch setzen
-            maplocationxinteger += counter # vor der beruecksichtigung der var groesse
-            print('counter X', maplocationxinteger) # vor der beruecksichtigung der var groesse test ausgabe
+            maplocationxinteger += counter # vor der beruecksichtigung der var groesse            
             if mapsprung > 1: maplocationxinteger += mapsprung # nach der beruecksichtigung der var groesse
-            print('mapsprung X', maplocationxinteger) # nach der beruecksichtigung der var groesse test ausgabe
-            #maplocationyinteger += counter # Y muss sich auch aendern?
-            print('ungrade X,Y:', maplocationxinteger , ',' , maplocationyinteger) # nach der beruecksichtigung der var groesse test ausgabe
+            map(maplocationxinteger, maplocationyinteger) # Neu map Beispiel: map(1000, 1000) ergibt eine variable string mit dem inhalt 1000,1000 die direkt in die config geschrieben werden kann.
+        elif counter == 0:
+            map(maplocationxinteger, maplocationyinteger) # Damit bei der Region Null die loacalisation eingetragen wird.
         else: 
             # oder ist der counter grade, localisation y zaehler hoch setzen
             maplocationyinteger += counter # vor der beruecksichtigung der var groesse
-            print('counter Y', maplocationyinteger) # vor der beruecksichtigung der var groesse test ausgabe
             if mapsprung > 1: maplocationyinteger += mapsprung # nach der beruecksichtigung der var groesse
-            print('mapsprung Y', maplocationyinteger) # nach der beruecksichtigung der var groesse test ausgabe
-            maplocationxinteger += counter # X muss sich auch aendern?
-            print('grade X,Y:', maplocationxinteger , ',' , maplocationyinteger) # nach der beruecksichtigung der var groesse test ausgabe
-
-    maplocationxstring = str(maplocationxinteger) # int to str sonst kann das nicht in die konfiguration geschrieben werden
-    maplocationystring = str(maplocationyinteger) # int to str sonst kann das nicht in die konfiguration geschrieben werden
-    newmaplocation = maplocationxstring + ',' + maplocationystring # zusammenbauen zu beispiel: 1000,1000
-
-    maplocationx = str(maplocationx) # int to str sonst kann das nicht in die konfiguration geschrieben werden
-    maplocationy = str(maplocationy) # int to str sonst kann das nicht in die konfiguration geschrieben werden
-    maplocation = maplocationx + ',' + maplocationy # Zusammensetzen Beispiel 1000,1000
+            map(maplocationxinteger, maplocationyinteger) # Neu map Beispiel: map(1000, 1000) ergibt eine variable string mit dem inhalt 1000,1000 die direkt in die config geschrieben werden kann.
 
     # region name
     regionname = entryRegionName.get() # Holt die Daten aus der Eingabe, hier regionname.
@@ -356,7 +352,7 @@ def write_region():
 
     # Konfiguration erstellen.
     config[regionnameout] = {'RegionUUID': ruuid,
-                          'Location': newmaplocation,
+                          'Location': maplocation,
                           'SizeX': Size_var,
                           'SizeY': Size_var,
                           'SizeZ': Size_var,
