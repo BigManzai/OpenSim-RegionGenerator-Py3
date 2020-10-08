@@ -1,0 +1,393 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2020-10-05 19:22+0200\n"
+"PO-Revision-Date: 2020-10-08 14:22+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"X-Generator: Poedit 2.4.1\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Language: ru\n"
+
+#: RegionGenerator.py:141
+msgid ""
+"The created region configuration files only need to be moved to the Regions "
+"directory.\n"
+"\n"
+"Then restart the OpenSimulator.\n"
+"\n"
+"Please a maximum of 15 standard regions per OpenSimulator when using "
+"mySQL.\n"
+"\n"
+"If you use mesh on your regions, please drastically reduce the number of "
+"regions per OpenSimulator.\n"
+"\n"
+"If you use a lot of mesh and scripts, it is better to only use one region "
+"per OpenSimulator.\n"
+"\n"
+"Variable VAR regions should always run individually.\n"
+"\n"
+"When using sqLite you should be careful, a region with around 6000 prims is "
+"roughly the limit, after which errors can occur in the database."
+msgstr ""
+"Созданные файлы конфигурации регионов только должны быть перемещены в "
+"каталог регионов.\n"
+"\n"
+"Затем перезапустим OpenSimulator.\n"
+"\n"
+"Пожалуйста, максимум 15 стандартных регионов на OpenSimulator при "
+"использовании myS'L.\n"
+"\n"
+"Если вы используете сетку в регионах, пожалуйста, резко сократите "
+"количество регионов на OpenSimulator.\n"
+"\n"
+"Если вы используете много сетки и скриптов, лучше использовать только один "
+"регион на OpenSimulator.\n"
+"\n"
+"Переменные регионы VAR должны всегда работать индивидуально.\n"
+"\n"
+"При использовании sqLite следует быть осторожным, область с около 6000 "
+"prims примерно предел, после чего ошибки могут возникнуть в базе данных."
+
+#: RegionGenerator.py:141 RegionGenerator.py:746
+msgid "Help"
+msgstr "Помощь"
+
+#: RegionGenerator.py:467
+msgid "Region Name"
+msgstr "Название региона"
+
+#: RegionGenerator.py:473
+msgid ""
+"insert region name\n"
+"example: My Virtual Land\n"
+"blank creates a random."
+msgstr ""
+"вставить имя региона\n"
+"пример: Моя виртуальная земля\n"
+"пустой создает случайные."
+
+#: RegionGenerator.py:476
+msgid "Location"
+msgstr "Местоположение"
+
+#: RegionGenerator.py:485
+msgid ""
+"Location x\n"
+"example: 5000\n"
+"blank creates a random."
+msgstr ""
+"Расположение x\n"
+"пример: 5000\n"
+"пустой создает случайные."
+
+#: RegionGenerator.py:487
+msgid ""
+"Location y\n"
+"example: 5000\n"
+"blank creates a random."
+msgstr ""
+"Расположение y\n"
+"пример: 5000\n"
+"пустой создает случайные."
+
+#: RegionGenerator.py:490
+msgid "Region UUID"
+msgstr "Регион UUID"
+
+#: RegionGenerator.py:496
+msgid ""
+"Region UUID\n"
+"blank creates a random."
+msgstr ""
+"Регион UUID\n"
+"пустой создает случайные."
+
+#: RegionGenerator.py:499
+msgid "Size"
+msgstr "Размер"
+
+#: RegionGenerator.py:505
+msgid ""
+"If size is not specified it will\n"
+"default to the legacy size of 256.\n"
+"blank creates 256."
+msgstr ""
+"Если размер не указан, он\n"
+"по умолчанию до устаревшего размера 256.\n"
+"пустой создает 256."
+
+#: RegionGenerator.py:508
+msgid "Internal Address"
+msgstr "Внутренний адрес"
+
+#: RegionGenerator.py:514
+msgid ""
+"Internal Address\n"
+"standard: 0.0.0.0"
+msgstr ""
+"Внутренний адрес\n"
+"стандарт: 0.0.0.0"
+
+#: RegionGenerator.py:517
+msgid "Internal Port"
+msgstr "Внутренний порт"
+
+#: RegionGenerator.py:523
+msgid ""
+"IP port for all incoming client connections.\n"
+"Blank creates a random."
+msgstr ""
+"IP-порт для всех входящих клиентских подключений.\n"
+"Пустой создает случайный."
+
+#: RegionGenerator.py:526
+msgid "Allow Alternate Ports"
+msgstr "Разрешить альтернативные порты"
+
+#: RegionGenerator.py:532
+msgid ""
+"AllowAlternatePorts Not Used.\n"
+"Leave it always False."
+msgstr ""
+"РазрешитьАлтернатПорты не используются.\n"
+"Оставьте его всегда ложным."
+
+#: RegionGenerator.py:535
+msgid "External Host Name"
+msgstr "Внешнее имя хозяина"
+
+#: RegionGenerator.py:541
+msgid ""
+"External IP Address of the router or FQDN.\n"
+"(must be the same for all regions on file)\n"
+"Blank creates SYSTEMIP"
+msgstr ""
+"Внешний IP-адрес маршрутизатора или F-DN.\n"
+"(должен быть одинаковым для всех регионов в файле)\n"
+"Пустой создает SYSTEMIP"
+
+#: RegionGenerator.py:544
+msgid "Max Prims"
+msgstr "Макс Примс"
+
+#: RegionGenerator.py:550
+msgid ""
+"The maximum number of prims that the region will be listed as supporting.\n"
+"However, this limit is not currently enforced by OpenSimulator.\n"
+"Due to LL protocol constraints,\n"
+"the maximum limit that can be shown is 45000."
+msgstr ""
+"Максимальное количество чопорных, что регион будет указан в качестве "
+"поддержки.\n"
+"Однако в настоящее время этот предел не соблюдается OpenSimulator.\n"
+"Из-за ограничений протокола LL\n"
+"максимальный предел, который может быть показан, составляет 45000."
+
+#: RegionGenerator.py:553
+msgid "Max Agents"
+msgstr "Макс Агенты"
+
+#: RegionGenerator.py:559
+msgid ""
+"The maximum number of agents that can be in the in the region at any given "
+"time."
+msgstr ""
+"Максимальное количество агентов, которые могут быть в регионе в любой "
+"момент времени."
+
+#: RegionGenerator.py:562
+msgid "Default Landing"
+msgstr "Посадка по умолчанию"
+
+#: RegionGenerator.py:568
+msgid ""
+"Default Landing\n"
+"example: 128,128,21"
+msgstr ""
+"Посадка по умолчанию\n"
+"пример: 128 128,21"
+
+#: RegionGenerator.py:571 RegionGenerator.py:583 RegionGenerator.py:595
+#: RegionGenerator.py:607 RegionGenerator.py:619 RegionGenerator.py:631
+#: RegionGenerator.py:643 RegionGenerator.py:655 RegionGenerator.py:667
+#: RegionGenerator.py:679 RegionGenerator.py:691 RegionGenerator.py:703
+#: RegionGenerator.py:715
+msgid "turn on"
+msgstr "нажать вкл"
+
+#: RegionGenerator.py:574
+msgid "Non Physical Prim Max"
+msgstr "Не физический Прим Макс"
+
+#: RegionGenerator.py:580
+msgid ""
+"The maximum dimensions for a non-physical prim.\n"
+"This is a single number which applies to X, Y and Z co-ordinates.\n"
+"This will affect resizing of existing prims. Default is 256.\n"
+"This setting can also be used in the [Startup] section of OpenSim.ini.\n"
+"If the region setting exists then it will override the OpenSim.ini setting."
+msgstr ""
+"Максимальные размеры для не-физической чопорной.\n"
+"Это единое число, которое относится к X, Y и й координирует.\n"
+"Это повлияет на размер существующих чопорных. По умолчанию 256.\n"
+"Эта настройка также может быть использована в разделе «Стартап» OpenSim."
+"ini.\n"
+"Если параметр региона существует, то он переопределит параметр OpenSim.ini."
+
+#: RegionGenerator.py:586
+msgid "Physical Prim Max"
+msgstr "Физический Прим Макс"
+
+#: RegionGenerator.py:592
+msgid ""
+"The maximum dimensions of a physical prim. This is a single number which "
+"applies to X, Y and Z co-ordinates.\n"
+"This will affect resizing of existing prims. Default is 10.\n"
+"This setting can also be used in the [Startup] section of OpenSim.ini.\n"
+"If the region setting exists then it will override the OpenSim.ini setting."
+msgstr ""
+"Максимальные размеры физического чопора. Это единое число, которое "
+"относится к X, Y и й координирует.\n"
+"Это повлияет на размер существующих чопорных. По умолчанию 10.\n"
+"Эта настройка также может быть использована в разделе «Стартап» OpenSim."
+"ini.\n"
+"Если параметр региона существует, то он переопределит параметр OpenSim.ini."
+
+#: RegionGenerator.py:598
+msgid "Clamp Prim Size"
+msgstr "Зажим Prim размер"
+
+#: RegionGenerator.py:604
+msgid ""
+"If true then if a viewer attempts to create a prim which has any dimension "
+"larger than the NonphysicalPrimMax,\n"
+"then that dimension is reduced to NonphysicalPrimMax.\n"
+"Default is false; This setting can also be used in the [Startup] section of "
+"OpenSim.ini.\n"
+"If the region setting exists then it will override the OpenSim.ini setting."
+msgstr ""
+"Если это правда, то если зритель пытается создать чопопор, который имеет "
+"любое измерение больше, чем NonphysicalPrimMax,\n"
+"то, что измерение сводится к nonphysicalPrimMax.\n"
+"По умолчанию является ложным; Эта настройка также может быть использована в "
+"разделе «Стартап» OpenSim.ini.\n"
+"Если параметр региона существует, то он переопределит параметр OpenSim.ini."
+
+#: RegionGenerator.py:610
+msgid "Max Prims Per User"
+msgstr "Макс Примс на пользователя"
+
+#: RegionGenerator.py:616
+msgid "Number of prims that each user has available."
+msgstr "Количество чопорных, доступных каждому пользователю."
+
+#: RegionGenerator.py:622
+msgid "Scope ID"
+msgstr "Идентификатор сферы действия"
+
+#: RegionGenerator.py:628
+msgid "ScopeID"
+msgstr "Сфера действия"
+
+#: RegionGenerator.py:634
+msgid "Region Type"
+msgstr "Тип региона"
+
+#: RegionGenerator.py:640
+msgid ""
+"The region type as shown in the Covenant tab of the Region/Estate dialog in "
+"a standard Second Life viewer.\n"
+"Can be used to specify Mainland, Estate, etc. based on type of grid."
+msgstr ""
+"Тип региона, как показано на вкладке Пакта Диалога Региона/Эстейт в "
+"стандартном просмотре Second Life.\n"
+"Может быть использован для казать материк, имущество и т.д. в зависимости "
+"от типа сетки."
+
+#: RegionGenerator.py:646
+msgid "Maptile Static UUID"
+msgstr "Карта Статический UUID"
+
+#: RegionGenerator.py:652
+msgid ""
+"UUID of texture to use as a maptile for this region.\n"
+"Only set if you have disabled dynamic generation of the map tile from the "
+"region contents."
+msgstr ""
+"UUID текстуры для использования в качестве картографа для этого региона.\n"
+"Набор только в том случае, если вы отключили динамическое поколение плитки "
+"карты из содержимого региона."
+
+#: RegionGenerator.py:658
+msgid "Maptile Static File"
+msgstr "Карта Статический файл"
+
+#: RegionGenerator.py:664
+msgid "MaptileStaticFile"
+msgstr "КартаСтатикФиле"
+
+#: RegionGenerator.py:670
+msgid "Resolve Adress"
+msgstr "Разрешить Adress"
+
+#: RegionGenerator.py:676
+msgid "ResolveAdress"
+msgstr "РешимостьАдрес"
+
+#: RegionGenerator.py:682 RegionGenerator.py:688
+msgid "Master Avatar First Name"
+msgstr "Мастер Аватар Имя"
+
+#: RegionGenerator.py:694 RegionGenerator.py:700
+msgid "Master Avatar Last Name"
+msgstr "Мастер Аватар Фамилия"
+
+#: RegionGenerator.py:706 RegionGenerator.py:712
+msgid "Master Avatar Sandbox Password"
+msgstr "Мастер Аватар Песочница Пароль"
+
+#: RegionGenerator.py:718
+msgid "Number of regions"
+msgstr "Количество регионов"
+
+#: RegionGenerator.py:725
+msgid "The desired number of regions."
+msgstr "Нужное количество регионов."
+
+#: RegionGenerator.py:734
+msgid "Create"
+msgstr "Создать"
+
+#: RegionGenerator.py:737
+msgid "Creating the region configurations."
+msgstr "Создание конфигураций региона."
+
+#: RegionGenerator.py:740
+msgid "Clear"
+msgstr "Очистить"
+
+#: RegionGenerator.py:743
+msgid "Delete data."
+msgstr "Удалить данные."
+
+#: RegionGenerator.py:749
+msgid "Request help."
+msgstr "Запросите помощь."
+
+#: RegionGenerator.py:752
+msgid "Exit"
+msgstr "Выход"
+
+#: RegionGenerator.py:755
+msgid "Exit program."
+msgstr "Выходная программа."

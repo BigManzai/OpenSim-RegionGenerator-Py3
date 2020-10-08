@@ -1,0 +1,385 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2020-10-05 19:22+0200\n"
+"PO-Revision-Date: 2020-10-08 14:21+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"X-Generator: Poedit 2.4.1\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ja\n"
+
+#: RegionGenerator.py:141
+msgid ""
+"The created region configuration files only need to be moved to the Regions "
+"directory.\n"
+"\n"
+"Then restart the OpenSimulator.\n"
+"\n"
+"Please a maximum of 15 standard regions per OpenSimulator when using "
+"mySQL.\n"
+"\n"
+"If you use mesh on your regions, please drastically reduce the number of "
+"regions per OpenSimulator.\n"
+"\n"
+"If you use a lot of mesh and scripts, it is better to only use one region "
+"per OpenSimulator.\n"
+"\n"
+"Variable VAR regions should always run individually.\n"
+"\n"
+"When using sqLite you should be careful, a region with around 6000 prims is "
+"roughly the limit, after which errors can occur in the database."
+msgstr ""
+"作成された領域構成ファイルは、Regions ディレクトリに移動するだけで済みま"
+"す。\n"
+"\n"
+"その後、オープンシミュレータを再起動します。\n"
+"\n"
+"mySQL を使用する場合は、OpenSimulator ごとに最大 15 の標準リージョンを使用し"
+"てください。\n"
+"\n"
+"お使いの地域でメッシュを使用する場合は、OpenSimulator あたりの領域数を大幅に"
+"減らしてください。\n"
+"\n"
+"メッシュとスクリプトを多く使用する場合は、OpenSimulator ごとに 1 つの領域の"
+"みを使用することをおしいます。\n"
+"\n"
+"可変の VAR 領域は、常に個別に実行する必要があります。\n"
+"\n"
+"sqLite を使用する場合は、約 6000 プリムを持つ領域がほぼ限界であり、その後に"
+"データベースでエラーが発生する可能性があります。"
+
+#: RegionGenerator.py:141 RegionGenerator.py:746
+msgid "Help"
+msgstr "ヘルプ"
+
+#: RegionGenerator.py:467
+msgid "Region Name"
+msgstr "リージョン名"
+
+#: RegionGenerator.py:473
+msgid ""
+"insert region name\n"
+"example: My Virtual Land\n"
+"blank creates a random."
+msgstr ""
+"領域名の挿入\n"
+"例: マイバーチャルランド\n"
+"空白はランダムを作成します。"
+
+#: RegionGenerator.py:476
+msgid "Location"
+msgstr "場所"
+
+#: RegionGenerator.py:485
+msgid ""
+"Location x\n"
+"example: 5000\n"
+"blank creates a random."
+msgstr ""
+"位置 x\n"
+"例: 5000\n"
+"空白はランダムを作成します。"
+
+#: RegionGenerator.py:487
+msgid ""
+"Location y\n"
+"example: 5000\n"
+"blank creates a random."
+msgstr ""
+"位置 y\n"
+"例: 5000\n"
+"空白はランダムを作成します。"
+
+#: RegionGenerator.py:490
+msgid "Region UUID"
+msgstr "地域 UUID"
+
+#: RegionGenerator.py:496
+msgid ""
+"Region UUID\n"
+"blank creates a random."
+msgstr ""
+"地域 UUID\n"
+"空白はランダムを作成します。"
+
+#: RegionGenerator.py:499
+msgid "Size"
+msgstr "サイズ"
+
+#: RegionGenerator.py:505
+msgid ""
+"If size is not specified it will\n"
+"default to the legacy size of 256.\n"
+"blank creates 256."
+msgstr ""
+"size が指定されていない場合は、サイズ\n"
+"デフォルトは、256 の従来のサイズに設定されます。\n"
+"空白は 256 を作成します。"
+
+#: RegionGenerator.py:508
+msgid "Internal Address"
+msgstr "内部アドレス"
+
+#: RegionGenerator.py:514
+msgid ""
+"Internal Address\n"
+"standard: 0.0.0.0"
+msgstr ""
+"内部アドレス\n"
+"標準: 0.0.0.0"
+
+#: RegionGenerator.py:517
+msgid "Internal Port"
+msgstr "内部ポート"
+
+#: RegionGenerator.py:523
+msgid ""
+"IP port for all incoming client connections.\n"
+"Blank creates a random."
+msgstr ""
+"すべての着信クライアント接続の IP ポート。\n"
+"空白はランダムを作成します。"
+
+#: RegionGenerator.py:526
+msgid "Allow Alternate Ports"
+msgstr "代替ポートを許可する"
+
+#: RegionGenerator.py:532
+msgid ""
+"AllowAlternatePorts Not Used.\n"
+"Leave it always False."
+msgstr ""
+"代替ポートを使用しません。\n"
+"常に False のままにしておきます。"
+
+#: RegionGenerator.py:535
+msgid "External Host Name"
+msgstr "外部ホスト名"
+
+#: RegionGenerator.py:541
+msgid ""
+"External IP Address of the router or FQDN.\n"
+"(must be the same for all regions on file)\n"
+"Blank creates SYSTEMIP"
+msgstr ""
+"ルーターまたは FQDN の外部 IP アドレス。\n"
+"(ファイル上のすべての領域で同じでなければなりません)\n"
+"空白はシステムIPを作成します"
+
+#: RegionGenerator.py:544
+msgid "Max Prims"
+msgstr "マックスプリム"
+
+#: RegionGenerator.py:550
+msgid ""
+"The maximum number of prims that the region will be listed as supporting.\n"
+"However, this limit is not currently enforced by OpenSimulator.\n"
+"Due to LL protocol constraints,\n"
+"the maximum limit that can be shown is 45000."
+msgstr ""
+"地域がサポートとしてリストされるプリムの最大数。\n"
+"ただし、この制限は現在、OpenSimulator によって強制されていません。\n"
+"LL プロトコルの制約により、\n"
+"表示できる上限は 45000 です。"
+
+#: RegionGenerator.py:553
+msgid "Max Agents"
+msgstr "最大エージェント"
+
+#: RegionGenerator.py:559
+msgid ""
+"The maximum number of agents that can be in the in the region at any given "
+"time."
+msgstr "特定の時点で領域内に存在できるエージェントの最大数。"
+
+#: RegionGenerator.py:562
+msgid "Default Landing"
+msgstr "デフォルトの着陸"
+
+#: RegionGenerator.py:568
+msgid ""
+"Default Landing\n"
+"example: 128,128,21"
+msgstr ""
+"デフォルトの着陸\n"
+"例: 128,128,21"
+
+#: RegionGenerator.py:571 RegionGenerator.py:583 RegionGenerator.py:595
+#: RegionGenerator.py:607 RegionGenerator.py:619 RegionGenerator.py:631
+#: RegionGenerator.py:643 RegionGenerator.py:655 RegionGenerator.py:667
+#: RegionGenerator.py:679 RegionGenerator.py:691 RegionGenerator.py:703
+#: RegionGenerator.py:715
+msgid "turn on"
+msgstr "点ける"
+
+#: RegionGenerator.py:574
+msgid "Non Physical Prim Max"
+msgstr "非物理プリムマックス"
+
+#: RegionGenerator.py:580
+msgid ""
+"The maximum dimensions for a non-physical prim.\n"
+"This is a single number which applies to X, Y and Z co-ordinates.\n"
+"This will affect resizing of existing prims. Default is 256.\n"
+"This setting can also be used in the [Startup] section of OpenSim.ini.\n"
+"If the region setting exists then it will override the OpenSim.ini setting."
+msgstr ""
+"非物理プリムの最大サイズ。\n"
+"これは、X、Y、Z 座標に適用される単一の数値です。\n"
+"これは既存のプリムのサイズ変更に影響します。デフォルトは 256 です。\n"
+"この設定は OpenSim.ini の [スタートアップ] セクションでも使用できます。\n"
+"リージョン設定が存在する場合は、OpenSim.ini 設定がオーバーライドされます。"
+
+#: RegionGenerator.py:586
+msgid "Physical Prim Max"
+msgstr "物理プリムマックス"
+
+#: RegionGenerator.py:592
+msgid ""
+"The maximum dimensions of a physical prim. This is a single number which "
+"applies to X, Y and Z co-ordinates.\n"
+"This will affect resizing of existing prims. Default is 10.\n"
+"This setting can also be used in the [Startup] section of OpenSim.ini.\n"
+"If the region setting exists then it will override the OpenSim.ini setting."
+msgstr ""
+"物理プリムの最大サイズ。これは、X、Y、Z 座標に適用される単一の数値です。\n"
+"これは既存のプリムのサイズ変更に影響します。デフォルトは 10 です。\n"
+"この設定は OpenSim.ini の [スタートアップ] セクションでも使用できます。\n"
+"リージョン設定が存在する場合は、OpenSim.ini 設定がオーバーライドされます。"
+
+#: RegionGenerator.py:598
+msgid "Clamp Prim Size"
+msgstr "クランププリムサイズ"
+
+#: RegionGenerator.py:604
+msgid ""
+"If true then if a viewer attempts to create a prim which has any dimension "
+"larger than the NonphysicalPrimMax,\n"
+"then that dimension is reduced to NonphysicalPrimMax.\n"
+"Default is false; This setting can also be used in the [Startup] section of "
+"OpenSim.ini.\n"
+"If the region setting exists then it will override the OpenSim.ini setting."
+msgstr ""
+"もし true なら、視聴者が非物理PrimMaxより大きな次元を持つプリムを作成しよう"
+"とした場合、\n"
+"その後、その次元は非物理プリムマックスに減少します。\n"
+"デフォルトは false です。この設定は OpenSim.ini の [スタートアップ] セクショ"
+"ンでも使用できます。\n"
+"リージョン設定が存在する場合は、OpenSim.ini 設定がオーバーライドされます。"
+
+#: RegionGenerator.py:610
+msgid "Max Prims Per User"
+msgstr "ユーザーあたりの最大プリム数"
+
+#: RegionGenerator.py:616
+msgid "Number of prims that each user has available."
+msgstr "各ユーザーが使用できるプリムの数。"
+
+#: RegionGenerator.py:622
+msgid "Scope ID"
+msgstr "スコープ ID"
+
+#: RegionGenerator.py:628
+msgid "ScopeID"
+msgstr "スコープ ID"
+
+#: RegionGenerator.py:634
+msgid "Region Type"
+msgstr "リージョンの種類"
+
+#: RegionGenerator.py:640
+msgid ""
+"The region type as shown in the Covenant tab of the Region/Estate dialog in "
+"a standard Second Life viewer.\n"
+"Can be used to specify Mainland, Estate, etc. based on type of grid."
+msgstr ""
+"標準のセカンドライフビューアの[リージョン/不動産]ダイアログの[コヴナント]タ"
+"ブに表示される領域タイプ。\n"
+"グリッドの種類に基づいて、本土、不動産などを指定するために使用できます。"
+
+#: RegionGenerator.py:646
+msgid "Maptile Static UUID"
+msgstr "マップタイルスタティックUUID"
+
+#: RegionGenerator.py:652
+msgid ""
+"UUID of texture to use as a maptile for this region.\n"
+"Only set if you have disabled dynamic generation of the map tile from the "
+"region contents."
+msgstr ""
+"この領域のマップタイルとして使用するテクスチャの UUID。\n"
+"リージョン コンテンツからマップ タイルの動的生成を無効にしている場合にのみ設"
+"定します。"
+
+#: RegionGenerator.py:658
+msgid "Maptile Static File"
+msgstr "マップタイル静的ファイル"
+
+#: RegionGenerator.py:664
+msgid "MaptileStaticFile"
+msgstr "ファイルをマップタイルで表示する"
+
+#: RegionGenerator.py:670
+msgid "Resolve Adress"
+msgstr "ドレスを解決する"
+
+#: RegionGenerator.py:676
+msgid "ResolveAdress"
+msgstr "リゾルブアドレス"
+
+#: RegionGenerator.py:682 RegionGenerator.py:688
+msgid "Master Avatar First Name"
+msgstr "マスターアバター名"
+
+#: RegionGenerator.py:694 RegionGenerator.py:700
+msgid "Master Avatar Last Name"
+msgstr "マスターアバターの姓"
+
+#: RegionGenerator.py:706 RegionGenerator.py:712
+msgid "Master Avatar Sandbox Password"
+msgstr "マスターアバターサンドボックスパスワード"
+
+#: RegionGenerator.py:718
+msgid "Number of regions"
+msgstr "リージョンの数"
+
+#: RegionGenerator.py:725
+msgid "The desired number of regions."
+msgstr "必要なリージョン数。"
+
+#: RegionGenerator.py:734
+msgid "Create"
+msgstr "作成"
+
+#: RegionGenerator.py:737
+msgid "Creating the region configurations."
+msgstr "リージョン構成を作成します。"
+
+#: RegionGenerator.py:740
+msgid "Clear"
+msgstr "クリア"
+
+#: RegionGenerator.py:743
+msgid "Delete data."
+msgstr "データを削除します。"
+
+#: RegionGenerator.py:749
+msgid "Request help."
+msgstr "ヘルプをリクエストします。"
+
+#: RegionGenerator.py:752
+msgid "Exit"
+msgstr "終了"
+
+#: RegionGenerator.py:755
+msgid "Exit program."
+msgstr "プログラムを終了します。"
