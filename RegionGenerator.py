@@ -60,6 +60,8 @@ counter = 0
 mapsprung = 0
 xcounter = 0
 ycounter = 0
+regionsintnr = 0
+mapintcounter = 0
 
 # random name
 def randomname():
@@ -159,8 +161,9 @@ def osmap(mapx, mapy):
     return maplocation;
 
 # see if the user has entered a value or if it is random.
+# TODO: Doppelte vermeiden!!! durch addieren von mapintcounter geloest
 def randomport():
-    myport = random.randrange(9100, 9999, 4)
+    myport = random.randrange(9100, 9999, 4) ++ mapintcounter
     return myport;
 
 # see if the user has entered a value or if it is random.
@@ -169,7 +172,7 @@ def randomuuid():
     return randomuuid;
 
 # create a config file
-def write_region():
+def write_region(mapintcounter, regionsintnr):
     config = configparser.ConfigParser()
     global counter, xcounter, ycounter, maplocation
 
@@ -182,7 +185,7 @@ def write_region():
 
     # InternalPort
     InternalPort = str(entryInternalPort.get()) # Holt die Daten aus der Eingabe, hier der InternalPort.
-    if InternalPort=='' : InternalPort = randomport() # Wenn leer dann eine Zufallszahl generieren.
+    if InternalPort=='' : InternalPort = random.randrange(9100, 9999, 4) ++ mapintcounter # Wenn leer dann eine Zufallszahl generieren.
 
     # MaxPrims
     MaxPrims = str(entryMaxPrims.get()) # Holt die Daten aus der Eingabe, hier MaxPrims.
@@ -322,19 +325,126 @@ def write_region():
 
     # Aneinanderreien von Regionen ohne random
     # TODO: Neu machen das ist Falsch so. Ich habe mich mit den countern festgefahren.
-    if counter > 0: # Ist der counter = 0 die angegebene Position nutzen, ansonsten zaehler unter beruecksichtigung der Regionsgroesse hochsetzen.
-        if counter % 2:
+    if mapintcounter == 0:
+        osmap(maplocationxinteger, maplocationyinteger) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+
+    if mapintcounter == 1:
+        osmap(maplocationxinteger + 1, maplocationyinteger) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+
+    if mapintcounter == 2:
+        osmap(maplocationxinteger + 2, maplocationyinteger) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+
+### 3
+    if mapintcounter == 3:
+        osmap(maplocationxinteger, maplocationyinteger + 1) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+
+    if mapintcounter == 4:
+        osmap(maplocationxinteger + 1, maplocationyinteger + 1) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+
+    if mapintcounter == 5:
+        osmap(maplocationxinteger + 2, maplocationyinteger + 1) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+
+### 6
+    if mapintcounter == 6:
+        osmap(maplocationxinteger, maplocationyinteger + 2) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+
+    if mapintcounter == 7:
+        osmap(maplocationxinteger + 1, maplocationyinteger + 2) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+
+    if mapintcounter == 8:
+        osmap(maplocationxinteger + 2, maplocationyinteger + 2) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+### 9
+
+    if mapintcounter == 9:
+        osmap(maplocationxinteger, maplocationyinteger + 3) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+
+    if mapintcounter == 10:
+        osmap(maplocationxinteger + 1, maplocationyinteger + 3) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+
+    if mapintcounter == 11:
+        osmap(maplocationxinteger + 2, maplocationyinteger + 3) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+### 12
+
+    if mapintcounter == 12:
+        osmap(maplocationxinteger, maplocationyinteger + 4) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+
+    if mapintcounter == 13:
+        osmap(maplocationxinteger + 1, maplocationyinteger + 4) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+
+    if mapintcounter == 14:
+        osmap(maplocationxinteger + 2, maplocationyinteger + 4) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+### 15
+
+    if mapintcounter == 15:
+        osmap(maplocationxinteger, maplocationyinteger + 5) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+
+    if mapintcounter == 16:
+        osmap(maplocationxinteger + 1, maplocationyinteger + 5) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+
+    if mapintcounter == 17:
+        osmap(maplocationxinteger + 2, maplocationyinteger + 5) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+### 18
+
+    if mapintcounter == 18:
+        osmap(maplocationxinteger, maplocationyinteger + 6) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+
+    if mapintcounter == 19:
+        osmap(maplocationxinteger + 1, maplocationyinteger + 6) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+
+    if mapintcounter == 20:
+        osmap(maplocationxinteger + 2, maplocationyinteger + 6) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+### 21
+    if mapintcounter == 21:
+        osmap(maplocationxinteger, maplocationyinteger + 7) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+
+    if mapintcounter == 22:
+        osmap(maplocationxinteger + 1, maplocationyinteger + 7) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+
+    if mapintcounter == 23:
+        osmap(maplocationxinteger + 2, maplocationyinteger + 7) # Damit bei der Region Null die loacalisation eingetragen wird.
+        print(mapintcounter, regionsintnr)
+### 24
+
+    if mapintcounter >= 24: # Ist der counter = 0 die angegebene Position nutzen, ansonsten zaehler unter beruecksichtigung der Regionsgroesse hochsetzen.
+        if mapintcounter % 2:
             # ist der counter ungrade, localisation x zaehler hoch setzen
-            maplocationxinteger += counter # vor der beruecksichtigung der var groesse            
+
+            #maplocationxinteger += counter # vor der beruecksichtigung der var groesse
+            maplocationxinteger += mapintcounter # vor der beruecksichtigung der var groesse    
+
             if mapsprung > 1: maplocationxinteger += mapsprung # nach der beruecksichtigung der var groesse
             osmap(maplocationxinteger, maplocationyinteger) # Neu map Beispiel: map(1000, 1000) ergibt eine variable string mit dem inhalt 1000,1000 die direkt in die config geschrieben werden kann.
-        elif counter == 0:
-            osmap(maplocationxinteger, maplocationyinteger) # Damit bei der Region Null die loacalisation eingetragen wird.
+            print(mapintcounter, regionsintnr)
         else: 
             # oder ist der counter grade, localisation y zaehler hoch setzen
-            maplocationyinteger += counter # vor der beruecksichtigung der var groesse
+            #maplocationyinteger += counter # vor der beruecksichtigung der var groesse
+            maplocationyinteger += mapintcounter # vor der beruecksichtigung der var groesse
             if mapsprung > 1: maplocationyinteger += mapsprung # nach der beruecksichtigung der var groesse
             osmap(maplocationxinteger, maplocationyinteger) # Neu map Beispiel: map(1000, 1000) ergibt eine variable string mit dem inhalt 1000,1000 die direkt in die config geschrieben werden kann.
+            print(mapintcounter, regionsintnr)
 
     # region name
     regionname = entryRegionName.get() # Holt die Daten aus der Eingabe, hier regionname.
@@ -343,8 +453,8 @@ def write_region():
         regionname = randomname()
         regionnameout = regionname
     else:
-        regionnameout = regionname + ' ' + str(counter)
-        counter += 1
+        regionnameout = regionname + ' ' + str(mapintcounter)
+        #counter += 1
 
     # Leerzeichen durch unterstriche austauschen denn leerzeichen sind im Dateinamen nicht erlaubt.
     confdatei = regionnameout.replace(" ", "_")
@@ -380,10 +490,11 @@ def write_region():
 def createconfig():
     i=0
     n = int(entryRegionamount.get()) # Holt die Daten aus der Eingabe, hier die Menge der Regionen.
+
     for i in range(i, n):
-	    write_region()
+	    write_region(mapintcounter = i, regionsintnr = n)
     else:
-	    return n;
+	    return mapintcounter, regionsintnr;
 
 def clear_input_field():
    global counter, mapsprung, xcounter, ycounter
