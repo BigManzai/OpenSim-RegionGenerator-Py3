@@ -6,3 +6,5 @@ New source
 03.10.2020 var region test
 
 5.10.2020 Help + lang upgrade
+
+7.10.2020 Upgrade Port
