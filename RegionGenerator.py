@@ -325,70 +325,76 @@ def write_region(mapintcounter, regionsintnr):
     maplocationxinteger = int(mapliste[0]) # listeneintrag 0 als integer speichern
     maplocationyinteger = int(mapliste[1]) # listeneintrag 1 als integer speichern
 
-    # Aneinanderreien von Regionen ohne random
-    # TODO: Neu machen das ist Falsch so. Ich habe mich mit den countern festgefahren.
-    if mapintcounter == 0: osmap(maplocationxinteger, maplocationyinteger) 
-    if mapintcounter == 1: osmap(maplocationxinteger + 1, maplocationyinteger) 
-    if mapintcounter == 2: osmap(maplocationxinteger + 2, maplocationyinteger) 
-### 3 - 1x3
-    if mapintcounter == 3: osmap(maplocationxinteger, maplocationyinteger + 1) 
-    if mapintcounter == 4: osmap(maplocationxinteger + 1, maplocationyinteger + 1) 
-    if mapintcounter == 5: osmap(maplocationxinteger + 2, maplocationyinteger + 1) 
-### 6 - 2x3
-    if mapintcounter == 6: osmap(maplocationxinteger, maplocationyinteger + 2) 
-    if mapintcounter == 7: osmap(maplocationxinteger + 1, maplocationyinteger + 2) 
-    if mapintcounter == 8: osmap(maplocationxinteger + 2, maplocationyinteger + 2) 
-### 9 - 3x3
+    ### Aneinanderreien von Regionen als Block ohne random.
+    if mapintcounter == 0: osmap(maplocationxinteger + 0,maplocationyinteger + 0)
+    if mapintcounter == 1: osmap(maplocationxinteger + 1,maplocationyinteger + 0)
+    if mapintcounter == 6: osmap(maplocationxinteger + 2,maplocationyinteger + 0)
+    if mapintcounter == 12: osmap(maplocationxinteger + 3,maplocationyinteger + 0)
+    if mapintcounter == 20: osmap(maplocationxinteger + 4,maplocationyinteger + 0)
+    if mapintcounter == 30: osmap(maplocationxinteger + 5,maplocationyinteger + 0)
+    if mapintcounter == 42: osmap(maplocationxinteger + 6,maplocationyinteger + 0)
 
-# Ab hier sollte eine 4. reihe hinzugefuegt werden.
-    if mapintcounter == 9: osmap(maplocationxinteger, maplocationyinteger + 3) 
-    if mapintcounter == 10: osmap(maplocationxinteger + 1, maplocationyinteger + 3) 
-    if mapintcounter == 11: osmap(maplocationxinteger + 2, maplocationyinteger + 3) 
-### 12 - 3x3
-    if mapintcounter == 12: osmap(maplocationxinteger, maplocationyinteger + 4) 
-    if mapintcounter == 13: osmap(maplocationxinteger + 1, maplocationyinteger + 4) 
-    if mapintcounter == 14: osmap(maplocationxinteger + 2, maplocationyinteger + 4) 
-### 15 - 4x3
-    if mapintcounter == 15: osmap(maplocationxinteger, maplocationyinteger + 5) 
-    if mapintcounter == 16: osmap(maplocationxinteger + 1, maplocationyinteger + 5) 
-    if mapintcounter == 17: osmap(maplocationxinteger + 2, maplocationyinteger + 5) 
-### 18 - 5x3
-    if mapintcounter == 18: osmap(maplocationxinteger, maplocationyinteger + 6) 
-    if mapintcounter == 19: osmap(maplocationxinteger + 1, maplocationyinteger + 6) 
-    if mapintcounter == 20: osmap(maplocationxinteger + 2, maplocationyinteger + 6) 
-### 21 - 6x3
-    if mapintcounter == 21: osmap(maplocationxinteger, maplocationyinteger + 7) 
-    if mapintcounter == 22: osmap(maplocationxinteger + 1, maplocationyinteger + 7) 
-    if mapintcounter == 23: osmap(maplocationxinteger + 2, maplocationyinteger + 7) 
-### 24 - 7x3
+    if mapintcounter == 2: osmap(maplocationxinteger + 0,maplocationyinteger + 1)
+    if mapintcounter == 3: osmap(maplocationxinteger + 1,maplocationyinteger + 1)
+    if mapintcounter == 7: osmap(maplocationxinteger + 2,maplocationyinteger + 1)
+    if mapintcounter == 13: osmap(maplocationxinteger + 3,maplocationyinteger + 1)
+    if mapintcounter == 21: osmap(maplocationxinteger + 4,maplocationyinteger + 1)
+    if mapintcounter == 31: osmap(maplocationxinteger + 5,maplocationyinteger + 1)
+    if mapintcounter == 43: osmap(maplocationxinteger + 6,maplocationyinteger + 1)
 
-# Noch nicht getestet
-    if mapintcounter == 24: osmap(maplocationxinteger, maplocationyinteger + 8) 
-    if mapintcounter == 25: osmap(maplocationxinteger + 1, maplocationyinteger + 8) 
-    if mapintcounter == 26: osmap(maplocationxinteger + 2, maplocationyinteger + 8) 
-### 27 - 8x3
-    if mapintcounter == 27: osmap(maplocationxinteger, maplocationyinteger + 9) 
-    if mapintcounter == 28: osmap(maplocationxinteger + 1, maplocationyinteger + 9) 
-    if mapintcounter == 29: osmap(maplocationxinteger + 2, maplocationyinteger + 9) 
-### 30 - 9x3
-    if mapintcounter == 30: osmap(maplocationxinteger, maplocationyinteger + 10) 
-    if mapintcounter == 31: osmap(maplocationxinteger + 1, maplocationyinteger + 10) 
-    if mapintcounter == 32: osmap(maplocationxinteger + 2, maplocationyinteger + 10) 
-### 33 - 10x3
-    if mapintcounter == 33: osmap(maplocationxinteger, maplocationyinteger + 11) 
-    if mapintcounter == 34: osmap(maplocationxinteger + 1, maplocationyinteger + 11) 
-    if mapintcounter == 35: osmap(maplocationxinteger + 2, maplocationyinteger + 11) 
-### 36 - 11x3
-    if mapintcounter == 36: osmap(maplocationxinteger, maplocationyinteger + 12) 
-    if mapintcounter == 37: osmap(maplocationxinteger + 1, maplocationyinteger + 12) 
-    if mapintcounter == 38: osmap(maplocationxinteger + 2, maplocationyinteger + 12) 
-### 39 - 12x3
-    if mapintcounter == 39: osmap(maplocationxinteger, maplocationyinteger + 13) 
-    if mapintcounter == 40: osmap(maplocationxinteger + 1, maplocationyinteger + 13) 
-    if mapintcounter == 41: osmap(maplocationxinteger + 2, maplocationyinteger + 13) 
-### 41 - 13x3
+    if mapintcounter == 4: osmap(maplocationxinteger + 0,maplocationyinteger + 2)
+    if mapintcounter == 5: osmap(maplocationxinteger + 1,maplocationyinteger + 2)
+    if mapintcounter == 8: osmap(maplocationxinteger + 2,maplocationyinteger + 2)
+    if mapintcounter == 14: osmap(maplocationxinteger + 3,maplocationyinteger + 2)
+    if mapintcounter == 22: osmap(maplocationxinteger + 4,maplocationyinteger + 2)
+    if mapintcounter == 32: osmap(maplocationxinteger + 5,maplocationyinteger + 2)
+    if mapintcounter == 44: osmap(maplocationxinteger + 6,maplocationyinteger + 2)
 
-    if mapintcounter >= 42: # Ist der counter = 0 die angegebene Position nutzen, ansonsten zaehler unter beruecksichtigung der Regionsgroesse hochsetzen.
+    if mapintcounter == 9: osmap(maplocationxinteger + 0,maplocationyinteger + 3)
+    if mapintcounter == 10: osmap(maplocationxinteger + 1,maplocationyinteger + 3)
+    if mapintcounter == 11: osmap(maplocationxinteger + 2,maplocationyinteger + 3)
+    if mapintcounter == 15: osmap(maplocationxinteger + 3,maplocationyinteger + 3)
+    if mapintcounter == 23: osmap(maplocationxinteger + 4,maplocationyinteger + 3)
+    if mapintcounter == 33: osmap(maplocationxinteger + 5,maplocationyinteger + 3)
+    if mapintcounter == 45: osmap(maplocationxinteger + 6,maplocationyinteger + 3)
+
+    if mapintcounter == 16: osmap(maplocationxinteger + 0,maplocationyinteger + 4)
+    if mapintcounter == 17: osmap(maplocationxinteger + 1,maplocationyinteger + 4)
+    if mapintcounter == 18: osmap(maplocationxinteger + 2,maplocationyinteger + 4)
+    if mapintcounter == 19: osmap(maplocationxinteger + 3,maplocationyinteger + 4)
+    if mapintcounter == 24: osmap(maplocationxinteger + 4,maplocationyinteger + 4)
+    if mapintcounter == 34: osmap(maplocationxinteger + 5,maplocationyinteger + 4)
+    if mapintcounter == 46: osmap(maplocationxinteger + 6,maplocationyinteger + 4)
+
+    if mapintcounter == 25: osmap(maplocationxinteger + 0,maplocationyinteger + 5)
+    if mapintcounter == 26: osmap(maplocationxinteger + 1,maplocationyinteger + 5)
+    if mapintcounter == 27: osmap(maplocationxinteger + 2,maplocationyinteger + 5)
+    if mapintcounter == 28: osmap(maplocationxinteger + 3,maplocationyinteger + 5)
+    if mapintcounter == 29: osmap(maplocationxinteger + 4,maplocationyinteger + 5)
+    if mapintcounter == 35: osmap(maplocationxinteger + 5,maplocationyinteger + 5)
+    if mapintcounter == 47: osmap(maplocationxinteger + 6,maplocationyinteger + 5)
+
+    if mapintcounter == 36: osmap(maplocationxinteger + 0,maplocationyinteger + 6)
+    if mapintcounter == 37: osmap(maplocationxinteger + 1,maplocationyinteger + 6)
+    if mapintcounter == 38: osmap(maplocationxinteger + 2,maplocationyinteger + 6)
+    if mapintcounter == 39: osmap(maplocationxinteger + 3,maplocationyinteger + 6)
+    if mapintcounter == 40: osmap(maplocationxinteger + 4,maplocationyinteger + 6)
+    if mapintcounter == 41: osmap(maplocationxinteger + 5,maplocationyinteger + 6)
+    if mapintcounter == 48: osmap(maplocationxinteger + 6,maplocationyinteger + 6)
+
+    if mapintcounter == 49: osmap(maplocationxinteger + 0,maplocationyinteger + 7)
+    if mapintcounter == 50: osmap(maplocationxinteger + 1,maplocationyinteger + 7)
+    if mapintcounter == 51: osmap(maplocationxinteger + 2,maplocationyinteger + 7)
+    if mapintcounter == 52: osmap(maplocationxinteger + 3,maplocationyinteger + 7)
+    if mapintcounter == 53: osmap(maplocationxinteger + 4,maplocationyinteger + 7)
+    if mapintcounter == 54: osmap(maplocationxinteger + 5,maplocationyinteger + 7)
+    if mapintcounter == 55: osmap(maplocationxinteger + 6,maplocationyinteger + 7)
+
+    # 55 Reihen als Block sind fertig. LibreOffice Calc hat das so sortiert.
+
+
+    # Ab 56 einfach den counter erhoehen.
+    if mapintcounter >= 56: # Ist der counter = 0 die angegebene Position nutzen, ansonsten zaehler unter beruecksichtigung der Regionsgroesse hochsetzen.
         if mapintcounter % 2:
             # ist der counter ungrade, localisation x zaehler hoch setzen
 
